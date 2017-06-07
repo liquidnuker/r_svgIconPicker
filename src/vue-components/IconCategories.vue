@@ -1,109 +1,107 @@
 <template>
-  <div>
-    <div class="row svgpker">
-      <div class="row ic_container">
-        <!-- vcHeader mount-->
-        <div id="vc-header-mount">          
-        </div>
-        <!-- end vcHeader mount -->
-        <div class="row ic_tophover">
-          <div class="col-sm-6">
-
-            <p>{{ hoveritem }}</p>
-          </div>
-          <div class="col-sm-6">
-            <p>{{ snippet }}</p>
-          </div>
-        </div>
-        <!-- breadcrumb/search -->
-        <div class="row">
-          <div class="col-sm-4 ic_breadcrumb">
-            <a href="index.html#/">Home</a> <p>&gt;</p>&nbsp;{{ this.$route.params.category }}
-          </div>
-          <div class="col-sm-8">
-            <!-- begin search -->
-            <label for='hy'>search {{currentCategory}}:</label>
-            <input type="text" id='hy'/>
-            <!-- end search -->
-          </div>
-        </div>
-        <!-- end breadcrumb/search -->
-        <!-- category/type -->
-        <div class="row ic_cattype">
-          <div class="col-sm-4">
-            <!-- category selector mount -->
-            <div id="cat-selector-mount">
-
-            </div>
-            <!-- end category selector mount -->
-          </div>
-          <div class="col-sm-8">
-            <span v-if="fcVisible" class="ic_filter-controls">
-              type:
-              <img v-on:click="filterItems('all')" src="img/icons/unsorted/noborders_transpa1.svg">
-              <img v-on:click="filterItems('noborder')" src="img/icons/unsorted/noborders_transpa1.svg">
-              <img v-on:click="filterItems('square')" src="img/icons/unsorted/square_transpa1.svg">
-              <img v-on:click="filterItems('circle')" src="img/icons/unsorted/circle_transpa1.svg">
-              <img v-on:click="filterItems('triangle')" src="img/icons/unsorted/triangle_transpa1.svg">
-              <img v-on:click="filterItems('roundedborder')" src="img/icons/unsorted/rounded_transpa1.svg">
-            </span>
-            <button class="ic_gridlist_toggle ic_btn" v-on:click="toggleGrid()">{{ gridView ? "list" : "grid" }}</button>        
-          </div>
-        </div>
-        <!-- end category/type -->
-        <!--top ic_pg-controls -->
-        <div class="col-sm-12 row ic_pg-controls">
-          <div class="jpages_pg">
-            top paginator
-          </div>          
-        </div>  
-        <!--end top ic_pg-controls -->
-        <!-- ic_pg-holder -->
-        <div class="row col-sm-12" id="jpages_pg-holder" v-on:mouseout="showIconInfo()">
-          <!-- grid view -->
-          <div v-if="gridView" v-for="(i, index) in currentItems" :key="i.id">
-            <div class="col-xs-3 col-sm-2 ic_iconbox" id="ic_iconbox" 
-            v-on:mouseover="showIconInfo(i.id)" 
-            v-on:click="selectitem(i.svg)">          
-            <p class="ic_toggle">{{ i.id }}</p>
-            <img v-bind:src="'img/icons/' + currentCategory + '/' + i.src">
-            <div class="ic_tooltip">
-              <button class="ic_btn" v-on:click="addFavorite(i.id, i.src, i.type, i.svg)">add</button>
-              <button class="ic_btn" v-on:click="">svg</button>  
-            </div>        
-          </div>
-        </div>
-        <!-- end grid view -->
-        <!-- list view -->
-        <div v-else>
-          <div class="col-sm-12 row ic_listview">
-          <p class="ic_list_id">{{ i.id }}</p>
-            <div class="col-sm-2">
-              <div class="ic_list_iconbox">
-                <img v-bind:src="'img/icons/' + currentCategory + '/' + i.src">
-              </div>
-            </div> 
-            <div class="col-sm-5 ic_listview_details">            
-              <p>{{ i.description }}</p>
-              <button class="ic_btn" v-on:click="addFavorite(i.id, i.src, i.type, i.svg)">add to stash</button>
-              <button class="ic_btn" v-on:click="">copy svg code</button>
-            </div>  
-            <div class="col-sm-5">
-              svg code
-            </div>              
-          </div>
-        </div>   
-        <!-- end list view -->
+  <div class="row svgpker">
+    <div class="row ic_container">
+      <!-- vcHeader mount-->
+      <div id="vc-header-mount">          
       </div>
-      <!-- end ic_pg-holder -->
-      <!--bottom ic_pg-controls -->
+      <!-- end vcHeader mount -->
+      <div class="row ic_tophover">
+        <div class="col-sm-6">
+
+          <p>{{ hoveritem }}</p>
+        </div>
+        <div class="col-sm-6">
+          <p>{{ snippet }}</p>
+        </div>
+      </div>
+      <!-- breadcrumb/search -->
+      <div class="row">
+        <div class="col-sm-4 ic_breadcrumb">
+          <a href="index.html#/">Home</a> <p>&gt;</p>&nbsp;{{ this.$route.params.category }}
+        </div>
+        <div class="col-sm-8">
+          <!-- begin search -->
+          <label for='hy'>search {{currentCategory}}:</label>
+          <input type="text" id='hy'/>
+          <!-- end search -->
+        </div>
+      </div>
+      <!-- end breadcrumb/search -->
+      <!-- category/type -->
+      <div class="row ic_cattype">
+        <div class="col-sm-4">
+          <!-- category selector mount -->
+          <div id="cat-selector-mount">
+
+          </div>
+          <!-- end category selector mount -->
+        </div>
+        <div class="col-sm-8">
+          <span v-if="fcVisible" class="ic_filter-controls">
+            type:
+            <img v-on:click="filterItems('all')" src="img/icons/unsorted/noborders_transpa1.svg">
+            <img v-on:click="filterItems('noborder')" src="img/icons/unsorted/noborders_transpa1.svg">
+            <img v-on:click="filterItems('square')" src="img/icons/unsorted/square_transpa1.svg">
+            <img v-on:click="filterItems('circle')" src="img/icons/unsorted/circle_transpa1.svg">
+            <img v-on:click="filterItems('triangle')" src="img/icons/unsorted/triangle_transpa1.svg">
+            <img v-on:click="filterItems('roundedborder')" src="img/icons/unsorted/rounded_transpa1.svg">
+          </span>
+          <button class="ic_gridlist_toggle ic_btn" v-on:click="toggleGrid()">{{ gridView ? "list" : "grid" }}</button>        
+        </div>
+      </div>
+      <!-- end category/type -->
+      <!--top ic_pg-controls -->
       <div class="col-sm-12 row ic_pg-controls">
         <div class="jpages_pg">
           top paginator
         </div>          
       </div>  
-      <!--end bottom ic_pg-controls -->
+      <!--end top ic_pg-controls -->
+      <!-- ic_pg-holder -->
+      <div class="row col-sm-12" id="jpages_pg-holder" v-on:mouseout="showIconInfo()">
+        <!-- grid view -->
+        <div v-if="gridView" v-for="(i, index) in currentItems" :key="i.id">
+          <div class="col-xs-3 col-sm-2 ic_iconbox" id="ic_iconbox" 
+          v-on:mouseover="showIconInfo(i.id)" 
+          v-on:click="selectitem(i.svg)">          
+          <p class="ic_toggle">{{ i.id }}</p>
+          <img v-bind:src="'img/icons/' + currentCategory + '/' + i.src">
+          <div class="ic_tooltip">
+            <button class="ic_btn" v-on:click="addFavorite(i.id, i.src, i.type, i.svg, i.description)">add</button>
+            <button class="ic_btn" v-on:click="">svg</button>  
+          </div>        
+        </div>
+      </div>
+      <!-- end grid view -->
+      <!-- list view -->
+      <div v-else>
+        <div class="col-sm-12 row ic_listview">
+          <p class="ic_list_id">{{ i.id }}</p>
+          <div class="col-sm-2">
+            <div class="ic_list_iconbox">
+              <img v-bind:src="'img/icons/' + currentCategory + '/' + i.src">
+            </div>
+          </div> 
+          <div class="col-sm-5 ic_listview_details">            
+            <p>{{ i.description }}</p>
+            <button class="ic_btn" v-on:click="addFavorite(i.id, i.src, i.type, i.svg)">add to stash</button>
+            <button class="ic_btn" v-on:click="">copy svg code</button>
+          </div>  
+          <div class="col-sm-5">
+            svg code
+          </div>              
+        </div>
+      </div>   
+      <!-- end list view -->
     </div>
+    <!-- end ic_pg-holder -->
+    <!--bottom ic_pg-controls -->
+    <div class="col-sm-12 row ic_pg-controls">
+      <div class="jpages_pg">
+        top paginator
+      </div>          
+    </div>  
+    <!--end bottom ic_pg-controls -->
   </div>
 </div>
 </template>
@@ -267,7 +265,7 @@ export default {
         this.gridView = !this.gridView;
         pager.reActivate(4);
       },
-      addFavorite: function (id, src, type, svg) {
+      addFavorite: function (id, src, type, svg, desc) {
 
         // check before pushing
         if (favoriteExists(id) !== undefined) {
@@ -281,6 +279,7 @@ export default {
             type: type,
             src: src,
             svg: svg,
+            description: desc,
             date: x,
             notes: ""
 

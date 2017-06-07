@@ -13,11 +13,12 @@ const store = {
     {
       category: "category1",
       id: "id1",
-      type: "shape1",
+      type: "",
       src: "src1",
       svg: "svg1",
       date: "date1",
-      notes: "notes1"
+      notes: "notes1",
+      description: "description1"
     }
   ]
 };
