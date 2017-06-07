@@ -1,0 +1,86 @@
+{"unsorted":[
+  {
+    "id": "unsorted1",
+    "type": "circle",
+    "src": "circle_transpa1.svg",
+    "description": "transparent circle",
+    "svg": ""   
+  },
+  {
+    "id": "unsorted2",
+    "type": "roundedborder",
+    "src": "rounded_transpa1.svg",
+    "description": "transparent rounded",
+    "svg": ""   
+  },
+  {
+    "id": "unsorted3",
+    "type": "square",
+    "src": "square_transpa1.svg",
+    "description": "transparent square",
+    "svg": ""   
+  },
+  {
+    "id": "unsorted4",
+    "type": "triangle",
+    "src": "triangle_transpa1.svg",
+    "description": "transparent triangle",
+    "svg": ""   
+  },
+  {
+    "id": "unsorted5",
+    "type": "noborder",
+    "src": "noborders_transpa1.svg",
+    "description": "",
+    "svg": ""   
+  },
+  {
+    "id": "unsorted6",
+    "type": "roundedborder",
+    "src": "search1.svg",
+    "description": "",
+    "svg": ""   
+  },
+  {
+    "id": "unsorted7",
+    "type": "triangle",
+    "src": "",
+    "description": "",
+    "svg": ""   
+  },
+  {
+    "id": "unsorted8",
+    "type": "triangle",
+    "src": "",
+    "description": "",
+    "svg": ""   
+  },
+  {
+    "id": "unsorted9",
+    "type": "",
+    "src": "",
+    "description": "",
+    "svg": ""   
+  },
+  {
+    "id": "unsorted10",
+    "type": "",
+    "src": "",
+    "description": "",
+    "svg": ""   
+  },
+  {
+    "id": "unsorted11",
+    "type": "",
+    "src": "",
+    "description": "",
+    "svg": ""   
+  },
+  {
+    "id": "unsorted12",
+    "type": "",
+    "src": "",
+    "description": "",
+    "svg": ""   
+  }
+]}

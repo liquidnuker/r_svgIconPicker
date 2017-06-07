@@ -1,0 +1,86 @@
+{"directional":[
+  {
+    "id": "directional1",
+    "type": "",
+    "src": "",
+    "description": "description1",
+    "svg": "<template></html>"   
+  },
+  {
+    "id": "directional2",
+    "type": "",
+    "src": "",
+    "description": "",
+    "svg": ""   
+  },
+  {
+    "id": "directional3",
+    "type": "square",
+    "src": "",
+    "description": "",
+    "svg": ""   
+  },
+  {
+    "id": "directional4",
+    "type": "square",
+    "src": "",
+    "description": "",
+    "svg": ""   
+  },
+  {
+    "id": "directional5",
+    "type": "circle",
+    "src": "",
+    "description": "",
+    "svg": ""   
+  },
+  {
+    "id": "directional6",
+    "type": "roundedborder",
+    "src": "",
+    "description": "",
+    "svg": ""   
+  },
+  {
+    "id": "directional7",
+    "type": "triangle",
+    "src": "",
+    "description": "",
+    "svg": ""   
+  },
+  {
+    "id": "directional8",
+    "type": "triangle",
+    "src": "",
+    "description": "",
+    "svg": ""   
+  },
+  {
+    "id": "directional9",
+    "type": "",
+    "src": "",
+    "description": "",
+    "svg": ""   
+  },
+  {
+    "id": "directional10",
+    "type": "",
+    "src": "",
+    "description": "",
+    "svg": ""   
+  },
+  {
+    "id": "directional11",
+    "type": "",
+    "src": "",
+    "description": "",
+    "svg": ""   
+  },
+  {
+    "id": "directional12",
+    "type": "",
+    "src": "",
+    "description": "",
+    "svg": ""   
+  }
+]}
