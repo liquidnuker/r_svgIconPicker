@@ -9,7 +9,10 @@
         <!-- featuredicon/carouselintro -->
         <div class="row">
           <div class="col-sm-4">
-            featuredicon
+            <!-- featured-icon mount -->
+            <div id="vc-featured-icon">              
+            </div>
+            <!-- end featured-icon mount -->
           </div>
           <div class="col-sm-8">
             carousel/introtext
@@ -62,6 +65,19 @@ export default {
       new Vue({
         el: '#vc-header-mount',
         render: h => h(vcHeader)
+      });
+
+      this.mountFeaturedIcon();
+    },
+    mountFeaturedIcon: function() {
+      const vcFeaturedIcon = resolve => {
+        require.ensure(['./FeaturedIcon.vue'], () => {
+          resolve(require('./FeaturedIcon.vue'))
+        })
+      };
+      new Vue({
+        el: '#vc-featured-icon',
+        render: h => h(vcFeaturedIcon)
       });
     }
   }
