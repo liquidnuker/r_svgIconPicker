@@ -1,12 +1,10 @@
 <template>
-  <div>
-    <div>
-      <p v-if="favorites.length > 0">
-        <a :href="'index.html#/favorites'">favorites:</a>
-        <span class="ic_favorites_badge">{{ favorites.length }}</span>
-      </p>
-    </div>  
-  </div>
+<div class="ic_favorites">
+    <p v-if="favorites.length > 0">
+      <a :href="'index.html#/favorites'">favorites:</a>
+      <span class="ic_favorites_badge">{{ favorites.length }}</span>
+    </p>
+  </div>  
 </template>
 <script>
 import {store} from "../js/store.js";

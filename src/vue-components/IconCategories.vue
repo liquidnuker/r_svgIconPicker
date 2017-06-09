@@ -19,7 +19,7 @@
         <div class="col-sm-4 ic_breadcrumb">
           <a href="index.html#/">Home</a> <p>&gt;</p>&nbsp;{{ this.$route.params.category }}
         </div>
-        <div class="col-sm-8">
+        <div class="col-sm-8 ic_search">
           <!-- begin search -->
           <label for='hy'>search {{currentCategory}}:</label>
           <input type="text" id='hy'/>
@@ -32,12 +32,11 @@
         <div class="col-sm-4">
           <!-- category selector mount -->
           <div id="cat-selector-mount">
-
           </div>
           <!-- end category selector mount -->
         </div>
-        <div class="col-sm-8">
-          <span v-if="fcVisible" class="ic_filter-controls">
+        <div class="col-sm-8 ic_filter-controls">
+          <span v-if="fcVisible">
             type:
             <img v-on:click="filterItems('all')" src="img/icons/unsorted/noborders_transpa1.svg">
             <img v-on:click="filterItems('noborder')" src="img/icons/unsorted/noborders_transpa1.svg">

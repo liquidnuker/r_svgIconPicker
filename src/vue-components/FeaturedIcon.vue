@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="home_featured_icon">
 {{ featuredIconCategory }}<br>
 {{ featuredIconId }}<br>
 <img v-bind:src="'img/icons/' + featuredIconCategory + '/' +

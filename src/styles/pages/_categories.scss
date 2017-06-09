@@ -29,6 +29,8 @@
   }
 
   .ic_listview {
+    @extend %padd--4;
+
     .ic_list_iconbox {
       @extend %padd--4;
       @extend %pos--relative;
@@ -73,15 +75,17 @@
       vertical-align: text-bottom;
       cursor: pointer;
     }  
+
+    .ic_gridlist_toggle {
+      display: inline-block;
+      margin-left: 6px;
+      vertical-align: text-bottom;
+    }  
   }
 
-  .ic_gridlist_toggle {
-    margin-left: 6px;
-    display: inline-block;
-  }  
+  
 
   .ic_btn {
-    position:relative; 
     padding: 0px 6px 0px 6px; /* trbl */
     border: 1px solid #666;
     background: #999;  
@@ -100,6 +104,10 @@
     background-color: #ccc;
   }
 
+  .ic_favorites {
+    @extend %padd--4;
+  }
+
   .ic_favorites_badge {
     padding: 2px 4px 2px 4px; /* trbl */
     display: inline-block;
@@ -109,12 +117,24 @@
   }
 
   .ic_breadcrumb {
+    @extend %padd--4;
+
     p {
       display: inline-block;
     }
   }
 
+  .ic_category_select {
+    @extend %padd--4;
+  }
 
+  .ic_search {
+    @extend %padd--4;
+  }
+
+  .jpages_pg {
+    @extend %padd--4;
+  }
 
 }
 

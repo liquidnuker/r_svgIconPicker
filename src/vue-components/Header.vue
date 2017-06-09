@@ -1,17 +1,15 @@
 <template>
-<div>
 <!-- logo/favorites -->
-<div class="row">
-  <div class="col-sm-4">logo</div>
+<header class="row">
+  <div class="col-sm-4 header_logo_container">logo</div>
   <div class="col-sm-8">
     <!-- FavoriteCount.vue mount -->
     <div id="vc-fc-mount">
     </div>
     <!-- end FavoriteCount.vue mount -->
   </div>
-</div>
+</header>
 <!-- end logo/favorites --> 
-</div>
 </template>
 <script>
 // import Vue from "vue";
