@@ -9,4 +9,4 @@ const indexFinder = function (value) {
   }
 };
 
-export {indexFinder}
+export {indexFinder};

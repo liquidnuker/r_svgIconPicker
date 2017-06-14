@@ -131,6 +131,8 @@
 import {pager} from "../js/paginator.js";
 import {store} from "../js/store.js";
 import {indexFinder} from "../js/indexfinder.js";
+const Prism = require("prismjs");
+
 export default {
   data () {
     return {
@@ -142,20 +144,20 @@ export default {
 
       // notes-related
       addNewNote: false,
-      noteTitle: '',
-      note: '',
-      noteIndex: '',
+      noteTitle: "",
+      note: "",
+      noteIndex: "",
 
       editNote: false,
-      editNoteId: '',
-      currentNote: '',
+      editNoteId: "",
+      currentNote: "",
 
       // filter buttons      
       fcVisible: true,
 
       // grid/list view
       gridView:  false
-    }
+    };
   },
   watch: {
     allItems: function () {
@@ -167,28 +169,30 @@ export default {
       this.refreshItems();
     }
   },
+  updated: function () {
+    Prism.highlightAll();  
+  },
   mounted: function () {
     console.log("Favorites.vue mounted");
     this.refreshItems();  
     this.mountHeader();
-
-    const Prism = require('prismjs');
-    Prism.highlightAll();
+    Prism.highlightAll();  
   },
   methods: {
     mountHeader: function() {
       const vcHeader = resolve => {
-        require.ensure(['./Header.vue'], () => {
-          resolve(require('./Header.vue'))
-        })
+        require.ensure(["./Header.vue"], () => {
+          resolve(require("./Header.vue"));
+        });
       };
       new Vue({
-        el: '#vc-header-mount',
+        el: "#vc-header-mount",
         render: h => h(vcHeader)
       });
     },
     toggleGrid: function() {
-      this.gridView = !this.gridView;
+      this.gridView = !this.gridView;       
+      
     },
     refreshItems: function() {   
       pager.activate();
@@ -233,7 +237,7 @@ export default {
     },
     cancelNote: function() {
       // reset notes placeholder
-      this.note = '';
+      this.note = "";
       // close addNote area
       this.addNewNote = false;
     },
@@ -244,12 +248,12 @@ export default {
       this.cancelEdit();
     },
     cancelEdit: function() {
-      this.currentNote = '';
+      this.currentNote = "";
       this.editNote = false;
     },
     deleteNote: function(id) {      
       let indexToDelete = indexFinder(id);
-      store.favorites[indexToDelete].notes = '';
+      store.favorites[indexToDelete].notes = "";
     },
     filterItems: function(typeToFilter) {
       if (typeToFilter === "all") {
@@ -280,5 +284,5 @@ export default {
       }        
     }
   }
-}
+};
 </script>

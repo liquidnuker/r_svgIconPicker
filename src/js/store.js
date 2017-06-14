@@ -1,12 +1,12 @@
 const store = {
   // for default items. not filtered
-  allItems: '',
+  allItems: "",
 
   // for filteredItems
-  currentitems: '',
+  currentitems: "",
 
   // for category selector
-  currentCategory: '',
+  currentCategory: "",
   
   // favorites.vue
   favorites: [
@@ -23,4 +23,4 @@ const store = {
   ]
 };
 
-export {store}
+export {store};
