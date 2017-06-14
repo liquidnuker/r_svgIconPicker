@@ -1,0 +1,46 @@
+.modal1_bg {
+  // display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  
+  background: rgba(0, 0, 0, 0.4);
+  // opacity: 0.6;
+  z-index: 9000;
+}
+
+.modal1_container {
+  @include center-both;
+  @extend %padd--4;
+  
+  background: rgba(255, 255, 255, 1);
+  // opacity: 1;  
+  z-index: 9001;
+}
+
+.modal1_close {
+  @extend %padd--6;
+  color: #fff;
+  float: right;
+  background-color: #000;
+}
+
+// mobile portrait (320x480) 
+@include mq($from: mobile) {
+  .modal1_bg {
+    height: 100%;
+  }
+
+  .modal1_container{
+    width: 90%;
+  }
+}
+
+// *small tablet portrait (600x800)
+@include mq($from: smallTabletPortrait) {
+  .modal1_container{
+    width: 50%;
+  }
+}

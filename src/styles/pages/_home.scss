@@ -1,0 +1,14 @@
+body {
+  @extend %system_normal--300;
+}
+
+.header_logo_container {
+  @extend %padd--4;
+}
+
+.home_cat_selector,
+.home_cat_icons > div,
+.home_featured_icon {
+  @extend %padd--4;
+}
+

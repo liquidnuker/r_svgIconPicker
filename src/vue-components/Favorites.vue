@@ -7,22 +7,25 @@
       <!-- end vcHeader mount -->
 
       <!-- edit note -->
-      <div v-if="editNote">
-        edit note for: {{ editNoteId }}
-        <textarea rows="3" v-model="currentNote"></textarea>
-        <button class="ic_btn" v-on:click="updateNote(editNoteId, currentNote)">update note</button>
-        <button class="ic_btn" v-on:click="cancelEdit()">cancel</button>
+      <div class="modal1_bg" v-if="editNote">
+        <div class="modal1_container col-xs-12">
+          edit note for: {{ editNoteId }}
+          <textarea rows="3" v-model="currentNote"></textarea>
+          <button class="ic_btn" v-on:click="updateNote(editNoteId, currentNote)">update note</button>
+          <button class="ic_btn" v-on:click="cancelEdit()">cancel</button>
+        </div>
       </div>
       <!-- end edit note -->
 
-
       <!-- add new note -->
-      <div v-if="addNewNote">
-        add note for: {{ noteTitle }}
-        <textarea rows="3" v-model="note"></textarea>
-        <button class="ic_btn" v-on:click="addNote(noteTitle, note)">save</button>
-        <button class="ic_btn" v-on:click="cancelNote()">cancel</button>
-        <hr>
+      <div class="modal1_bg" v-if="addNewNote">
+        <div class="modal1_container col-xs-12">
+          add note for: {{ noteTitle }}
+          <textarea rows="3" v-model="note"></textarea>
+          <button class="ic_btn" v-on:click="addNote(noteTitle, note)">save</button>
+          <button class="ic_btn" v-on:click="cancelNote()">cancel</button>
+          <hr>
+        </div>
       </div>
       <!-- end add new note -->
       <!-- breadcrumb/search -->
