@@ -102,8 +102,8 @@
             </div>  
             <div class="col-sm-5">
               <!-- svg code -->
-              <pre>
-                <code>
+              <pre class="line-numbers" data-start="1">
+                <code class="language-markup">
                   {{ i.svg }}
                 </code>
               </pre>
@@ -171,6 +171,9 @@ export default {
     console.log("Favorites.vue mounted");
     this.refreshItems();  
     this.mountHeader();
+
+    const Prism = require('prismjs');
+    Prism.highlightAll();
   },
   methods: {
     mountHeader: function() {
