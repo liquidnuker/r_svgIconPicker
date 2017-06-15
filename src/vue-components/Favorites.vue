@@ -30,11 +30,8 @@
       <!-- end add new note -->
       <!-- breadcrumb/search -->
       <div class="row">
-        <div class="col-sm-4 ic_breadcrumb">
-          Home &gt; Favorites
-        </div>
-        <div class="col-sm-8">
-          search
+        <div class="col-sm-12 ic_breadcrumb">
+          <a href="index.html#/">Home</a> &gt; Favorites
         </div>
       </div>
       <!-- end breadcrumb/search -->
@@ -69,11 +66,10 @@
         <!-- gridview -->
         <div v-if="gridView" v-for="(i, index) in currentItems" :key="i">
           <div class="col-xs-3 col-sm-2 ic_iconbox" id="ic_iconbox">          
-            <p class="ic_toggle"></p>
-            <img>
+            <p class="ic_toggle">{{ i.id }}</p>
+            <img v-bind:src="'img/icons/' + i.category + '/' + i.src">
             <div class="ic_tooltip">
-              <button class="ic_btn">add</button>
-              <button class="ic_btn" v-on:click="">svg</button>  
+              <button class="ic_btn" v-on:click="removeItem(i.id)">remove</button>
             </div>        
           </div>
         </div>
@@ -81,9 +77,11 @@
         <!-- listview -->
         <div v-else>
           <div class="col-sm-12 row ic_listview">
-            <p class="ic_list_id">{{ i.id }}</p>
-            <button class="ic_btn" v-on:click="removeItem(i.id)">remove from favorites</button>
-            <p>category: {{ i.category }}</p>
+            <div class="row favorites_list_title">
+              <p class="ic_list_id">{{ i.id }}</p>
+              <button class="ic_btn" v-on:click="removeItem(i.id)">remove from favorites</button>
+            </div>
+            <p class="favorites_category">category: {{ i.category }}</p>
             <div class="col-sm-2">
               <div class="ic_list_iconbox">
                 <img v-bind:src="'img/icons/' + i.category + '/' + i.src">
@@ -169,13 +167,13 @@ export default {
       this.refreshItems();
     }
   },
-  updated: function () {
-    Prism.highlightAll();  
-  },
   mounted: function () {
     console.log("Favorites.vue mounted");
     this.refreshItems();  
     this.mountHeader();
+    Prism.highlightAll();  
+  },
+  updated: function () {
     Prism.highlightAll();  
   },
   methods: {

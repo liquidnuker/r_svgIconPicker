@@ -2,13 +2,30 @@ body {
   @extend %system_normal--300;
 }
 
-.header_logo_container {
+.stage {
+  height: 172px;
+}
+
+.featured_icon_container,
+.carousel_container {
+  height: 100%;
+}
+
+.header_logo_container,
+.featured_icon_container,
+.carousel_container,
+.news_container,
+.home_cat_selector,
+.home_cat_icons > div,
+footer {
   @extend %padd--4;
 }
 
-.home_cat_selector,
-.home_cat_icons > div,
-.home_featured_icon {
-  @extend %padd--4;
+.home_cat_selector h2 {
+  margin-bottom: 4px;
+}
+
+.home_cat_icons >div:hover img {
+  background-color: #000;
 }
 

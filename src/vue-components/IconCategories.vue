@@ -83,11 +83,18 @@
           </div> 
           <div class="col-sm-5 ic_listview_details">            
             <p>{{ i.description }}</p>
-            <button class="ic_btn" v-on:click="addFavorite(i.id, i.src, i.type, i.svg)">add to stash</button>
-            <button class="ic_btn" v-on:click="">copy svg code</button>
+            <button class="ic_btn" v-on:click="addFavorite(i.id, i.src, i.type, i.svg)">add to favorites</button>
+            <button class="ic_btn" v-on:click="">more info</button>
           </div>  
           <div class="col-sm-5">
-            svg code
+            <!-- svg code -->
+            <pre class="line-numbers" data-start="1">
+              <code class="language-markup">
+                {{ i.svg }}
+              </code>
+            </pre>
+            <!-- end svg code -->
+            <button class="ic_btn">copy svg</button>
           </div>              
         </div>
       </div>   
@@ -115,6 +122,7 @@ import {favoriteExists} from "../js/favoriteexists.js";
 import {removeParamColons} from "../js/removeparamcolons.js";
 import {pager} from "../js/paginator.js";
 import horsey from "../js/vendor/horsey.min.js";
+const Prism = require("prismjs");
 export default {
   data() {
       return {
@@ -140,6 +148,10 @@ export default {
       console.log("IconCategories.vue mounted");
       this.checkCategory();
       this.mountHeader();
+      Prism.highlightAll();
+    },
+    updated: function () {
+      Prism.highlightAll();  
     },
     watch: {
       $route: function () {

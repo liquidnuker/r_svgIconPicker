@@ -13,19 +13,28 @@
   }
 
   .ic_tooltip {
-    display: none;
+    text-align: center;
+    // display: none;
+    visibility: hidden;
   }
 
   .ic_iconbox {
     @extend %padd--4;
     @extend %pos--relative;
-    height: 84px;
+    word-wrap: break-word;
+    // height: 84px;
 
     img {
       @include center-block;
       @extend %pos--relative;
+      margin-top: 4px;
+      margin-bottom: 4px;
       height: 40px;
     }
+  }
+
+  .ic_iconbox:hover .ic_tooltip {
+    visibility: visible;
   }
 
   .ic_listview {
@@ -44,6 +53,7 @@
     }
 
     .ic_list_id {
+      @extend %padd--4;
       background-color: #ccc;
       font-weight: bold;
     }
@@ -56,10 +66,6 @@
     button {
       margin-top: 4px;
     }
-  }
-
-  .ic_iconbox:hover .ic_tooltip {
-    display: block;
   }
 
   .ic_filter-controls {
@@ -130,6 +136,12 @@
 
   .ic_search {
     @extend %padd--4;
+
+    input {
+      background: url(../../img/icons/ui/search1.svg);
+      background-repeat: no-repeat;
+      padding-left: 20px;
+    }
   }
 
   .jpages_pg {

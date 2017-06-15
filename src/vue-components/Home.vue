@@ -7,34 +7,53 @@
         </div>
         <!-- end vcHeader mount -->
         <!-- featuredicon/carouselintro -->
-        <div class="row">
-          <div class="col-sm-4">
+        <div class="row stage">
+          <section class="col-sm-4 featured_icon_container">
+            <h2>Featured Icon</h2>
             <!-- featured-icon mount -->
             <div id="vc-featured-icon">              
             </div>
             <!-- end featured-icon mount -->
-          </div>
-          <div class="col-sm-8">
+          </section>
+          <div class="col-sm-8 carousel_container">
             carousel/introtext
           </div>
         </div>
         <!-- end featuredicon/carouselintro -->
         <!-- news/iconcategoryselector -->
         <div class="row">
-          <div class="col-sm-4">
-            news
-          </div>
-          <div class="col-sm-8 home_cat_selector">
-            <p>iconcategory selector</p>
+          <section class="col-sm-4 news_container">
+            <h2>news</h2>
+          </section>
+          <section class="col-sm-8 home_cat_selector">
+            <h2>iconcategory selector</h2>
             <div class="row home_cat_icons">
-              <div class="col-sm-4">1</div>
-              <div class="col-sm-4">2</div>
-              <div class="col-sm-4">3</div>
-              <div class="col-sm-4">4</div>
-              <div class="col-sm-4">5</div>
-              <div class="col-sm-4">6</div>
+              <div class="col-xs-4">
+                <p>category1</p>
+                <img src="img/icons/ui/check1.svg">
+              </div>
+              <div class="col-xs-4">
+                <p>category1</p>
+                <img src="img/icons/ui/check1.svg">
+              </div>
+              <div class="col-xs-4">
+                <p>category1</p>
+                <img src="img/icons/ui/check1.svg">
+              </div>
+              <div class="col-xs-4">
+                <p>category1</p>
+                <img src="img/icons/ui/check1.svg">
+              </div>
+              <div class="col-xs-4">
+                <p>category1</p>
+                <img src="img/icons/ui/check1.svg">
+              </div>
+              <div class="col-xs-4">
+                <p>category1</p>
+                <img src="img/icons/ui/check1.svg">
+              </div>
             </div>    
-          </div>
+          </section>
         </div>
         <!-- end news/iconcategoryselector -->
         <footer class="col-sm-12 row">
