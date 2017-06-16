@@ -1,11 +1,11 @@
 <template>
-<div>
-{{ featuredIconCategory }}<br>
-{{ featuredIconId }}<br>
-<img v-bind:src="'img/icons/' + featuredIconCategory + '/' +
-featuredIconSrc">
-  
-</div>
+  <div class="row featured_icon">
+    <p>{{ featuredIconCategory }}</p>
+    <p>{{ featuredIconId }}</p>
+    <img v-bind:src="'img/icons/' + featuredIconCategory + '/' +
+    featuredIconSrc">
+
+  </div>
 </template>
 <script>
 import 'whatwg-fetch';

@@ -3,7 +3,15 @@ body {
 }
 
 .stage {
-  height: 172px;
+  // background-color: #000;
+}
+
+.featured_icon {
+  img {
+    @extend %margin--auto;
+    display: block;    
+    height: 110px;
+  }
 }
 
 .featured_icon_container,

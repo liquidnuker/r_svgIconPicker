@@ -16,7 +16,10 @@
             <!-- end featured-icon mount -->
           </section>
           <div class="col-sm-8 carousel_container">
-            carousel/introtext
+            <!-- begin carousel mount -->
+            <div id="vc_home_carousel">              
+            </div>
+            <!-- end carousel mount -->
           </div>
         </div>
         <!-- end featuredicon/carouselintro -->
@@ -27,32 +30,10 @@
           </section>
           <section class="col-sm-8 home_cat_selector">
             <h2>iconcategory selector</h2>
-            <div class="row home_cat_icons">
-              <div class="col-xs-4">
-                <p>category1</p>
-                <img src="img/icons/ui/check1.svg">
-              </div>
-              <div class="col-xs-4">
-                <p>category1</p>
-                <img src="img/icons/ui/check1.svg">
-              </div>
-              <div class="col-xs-4">
-                <p>category1</p>
-                <img src="img/icons/ui/check1.svg">
-              </div>
-              <div class="col-xs-4">
-                <p>category1</p>
-                <img src="img/icons/ui/check1.svg">
-              </div>
-              <div class="col-xs-4">
-                <p>category1</p>
-                <img src="img/icons/ui/check1.svg">
-              </div>
-              <div class="col-xs-4">
-                <p>category1</p>
-                <img src="img/icons/ui/check1.svg">
-              </div>
-            </div>    
+            <!-- begin cat selector mount -->
+            <div id="vc_home_cat_selector">              
+            </div>
+            <!-- end cat selector mount -->
           </section>
         </div>
         <!-- end news/iconcategoryselector -->
@@ -87,8 +68,7 @@ export default {
         el: '#vc-header-mount',
         render: h => h(vcHeader)
       });
-
-      this.mountFeaturedIcon();
+      this.mountCategorySelector();
     },
     mountFeaturedIcon: function() {
       const vcFeaturedIcon = resolve => {
@@ -99,6 +79,30 @@ export default {
       new Vue({
         el: '#vc-featured-icon',
         render: h => h(vcFeaturedIcon)
+      });
+      this.mountCarousel();
+    },
+    mountCategorySelector: function() {
+      const vcHomeCatSelector = resolve => {
+        require.ensure(['./HomeCategorySelector.vue'], () => {
+          resolve(require('./HomeCategorySelector.vue'))
+        })
+      };
+      new Vue({
+        el: '#vc_home_cat_selector',
+        render: h => h(vcHomeCatSelector)
+      });
+      this.mountFeaturedIcon();
+    },
+    mountCarousel: function() {
+      const vcHomeCarousel = resolve => {
+        require.ensure(['./HomeCarousel.vue'], () => {
+          resolve(require('./HomeCarousel.vue'))
+        })
+      };
+      new Vue({
+        el: '#vc_home_carousel',
+        render: h => h(vcHomeCarousel)
       });
     }
   }
