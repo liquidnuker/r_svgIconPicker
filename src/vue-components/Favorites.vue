@@ -9,8 +9,8 @@
       <!-- edit note -->
       <div class="modal1_bg" v-if="editNote">
         <div class="modal1_container col-xs-12">
-          edit note for: {{ editNoteId }}
-          <textarea rows="3" v-model="currentNote"></textarea>
+          <label for="currentNote">edit note for: {{ editNoteId }}</label>
+          <textarea id="currentNote" rows="3" v-model="currentNote"></textarea>
           <button class="ic_btn" v-on:click="updateNote(editNoteId, currentNote)">update note</button>
           <button class="ic_btn" v-on:click="cancelEdit()">cancel</button>
         </div>
@@ -20,8 +20,8 @@
       <!-- add new note -->
       <div class="modal1_bg" v-if="addNewNote">
         <div class="modal1_container col-xs-12">
-          add note for: {{ noteTitle }}
-          <textarea rows="3" v-model="note"></textarea>
+          <label for="note">add note for: {{ noteTitle }}</label>
+          <textarea id="note" rows="3" v-model="note"></textarea>
           <button class="ic_btn" v-on:click="addNote(noteTitle, note)">save</button>
           <button class="ic_btn" v-on:click="cancelNote()">cancel</button>
           <hr>
@@ -43,12 +43,12 @@
         <div class="col-sm-8">
           <span v-if="fcVisible" class="ic_filter-controls">
             type:
-            <img v-on:click="filterItems('all')" src="img/icons/unsorted/noborders_transpa1.svg">
-            <img v-on:click="filterItems('noborder')" src="img/icons/unsorted/noborders_transpa1.svg">
-            <img v-on:click="filterItems('square')" src="img/icons/unsorted/square_transpa1.svg">
-            <img v-on:click="filterItems('circle')" src="img/icons/unsorted/circle_transpa1.svg">
-            <img v-on:click="filterItems('triangle')" src="img/icons/unsorted/triangle_transpa1.svg">
-            <img v-on:click="filterItems('roundedborder')" src="img/icons/unsorted/rounded_transpa1.svg">
+            <img v-on:click="filterItems('all')" src="img/icons/unsorted/noborders_transpa1.svg" alt="show all">
+            <img v-on:click="filterItems('noborder')" src="img/icons/unsorted/noborders_transpa1.svg" alt="show noborders">
+            <img v-on:click="filterItems('square')" src="img/icons/unsorted/square_transpa1.svg" alt="show square">
+            <img v-on:click="filterItems('circle')" src="img/icons/unsorted/circle_transpa1.svg" alt="show circle">
+            <img v-on:click="filterItems('triangle')" src="img/icons/unsorted/triangle_transpa1.svg" alt="show triangle">
+            <img v-on:click="filterItems('roundedborder')" src="img/icons/unsorted/rounded_transpa1.svg" alt="show rounded border">
           </span>
           <button class="ic_gridlist_toggle ic_btn" v-on:click="toggleGrid()">{{ gridView ? "list" : "grid" }}</button>
         </div>
@@ -67,7 +67,7 @@
         <div v-if="gridView" v-for="(i, index) in currentItems" :key="i">
           <div class="col-xs-3 col-sm-2 ic_iconbox" id="ic_iconbox">          
             <p class="ic_toggle">{{ i.id }}</p>
-            <img v-bind:src="'img/icons/' + i.category + '/' + i.src">
+            <img v-bind:src="'img/icons/' + i.category + '/' + i.src" v-bind:alt="i.id">
             <div class="ic_tooltip">
               <button class="ic_btn" v-on:click="removeItem(i.id)">remove</button>
             </div>        
@@ -84,7 +84,7 @@
             <p class="favorites_category">category: {{ i.category }}</p>
             <div class="col-sm-2">
               <div class="ic_list_iconbox">
-                <img v-bind:src="'img/icons/' + i.category + '/' + i.src">
+                <img v-bind:src="'img/icons/' + i.category + '/' + i.src" v-bind:alt="i.id">
               </div>
             </div> 
             <div class="col-sm-5 ic_listview_details">           

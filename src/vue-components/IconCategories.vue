@@ -38,12 +38,12 @@
         <div class="col-sm-8 ic_filter-controls">
           <span v-if="fcVisible">
             type:
-            <img v-on:click="filterItems('all')" src="img/icons/unsorted/noborders_transpa1.svg">
-            <img v-on:click="filterItems('noborder')" src="img/icons/unsorted/noborders_transpa1.svg">
-            <img v-on:click="filterItems('square')" src="img/icons/unsorted/square_transpa1.svg">
-            <img v-on:click="filterItems('circle')" src="img/icons/unsorted/circle_transpa1.svg">
-            <img v-on:click="filterItems('triangle')" src="img/icons/unsorted/triangle_transpa1.svg">
-            <img v-on:click="filterItems('roundedborder')" src="img/icons/unsorted/rounded_transpa1.svg">
+            <img v-on:click="filterItems('all')" src="img/icons/unsorted/noborders_transpa1.svg" alt="show all">
+            <img v-on:click="filterItems('noborder')" src="img/icons/unsorted/noborders_transpa1.svg" alt="show noborders">
+            <img v-on:click="filterItems('square')" src="img/icons/unsorted/square_transpa1.svg" alt="show square">
+            <img v-on:click="filterItems('circle')" src="img/icons/unsorted/circle_transpa1.svg" alt="show circle">
+            <img v-on:click="filterItems('triangle')" src="img/icons/unsorted/triangle_transpa1.svg" alt="show triangle">
+            <img v-on:click="filterItems('roundedborder')" src="img/icons/unsorted/rounded_transpa1.svg" alt="show rounded border">
           </span>
           <button class="ic_gridlist_toggle ic_btn" v-on:click="toggleGrid()">{{ gridView ? "list" : "grid" }}</button>        
         </div>
@@ -64,7 +64,7 @@
           v-on:mouseover="showIconInfo(i.id)" 
           v-on:click="selectitem(i.svg)">          
           <p class="ic_toggle">{{ i.id }}</p>
-          <img v-bind:src="'img/icons/' + currentCategory + '/' + i.src">
+          <img v-bind:src="'img/icons/' + currentCategory + '/' + i.src" v-bind:alt="i.id">
           <div class="ic_tooltip">
             <button class="ic_btn" v-on:click="addFavorite(i.id, i.src, i.type, i.svg, i.description)">add</button>
             <button class="ic_btn" v-on:click="">svg</button>  
@@ -78,7 +78,7 @@
           <p class="ic_list_id">{{ i.id }}</p>
           <div class="col-sm-2">
             <div class="ic_list_iconbox">
-              <img v-bind:src="'img/icons/' + currentCategory + '/' + i.src">
+              <img v-bind:src="'img/icons/' + currentCategory + '/' + i.src" v-bind:alt="i.id">
             </div>
           </div> 
           <div class="col-sm-5 ic_listview_details">            

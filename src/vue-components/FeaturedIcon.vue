@@ -3,7 +3,7 @@
     <p>{{ featuredIconCategory }}</p>
     <p>{{ featuredIconId }}</p>
     <img v-bind:src="'img/icons/' + featuredIconCategory + '/' +
-    featuredIconSrc">
+    featuredIconSrc" v-bind:alt="'featured icon: ' + featuredIconId">
 
   </div>
 </template>
