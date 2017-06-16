@@ -26,10 +26,14 @@
         <!-- news/iconcategoryselector -->
         <div class="row">
           <section class="col-sm-4 news_container">
-            <h2>news</h2>
+            <h2>Latest News</h2>
+            <!-- begin commit fetcher mount-->
+            <div id="vc_commit_fetcher">
+            </div>
+            <!-- end commit fetcher mount-->
           </section>
           <section class="col-sm-8 home_cat_selector">
-            <h2>iconcategory selector</h2>
+            <h2>Icon Categories</h2>
             <!-- begin cat selector mount -->
             <div id="vc_home_cat_selector">              
             </div>
@@ -55,7 +59,7 @@ export default {
   mounted: function () {
     console.log("home.vue mounted");
     // this.refreshItems();  
-    this.mountHeader();
+    this.mountHeader(); // [1]
   },
   methods: {
   mountHeader: function() {
@@ -68,7 +72,7 @@ export default {
         el: '#vc-header-mount',
         render: h => h(vcHeader)
       });
-      this.mountCategorySelector();
+      this.mountCategorySelector(); // [2]
     },
     mountFeaturedIcon: function() {
       const vcFeaturedIcon = resolve => {
@@ -80,7 +84,7 @@ export default {
         el: '#vc-featured-icon',
         render: h => h(vcFeaturedIcon)
       });
-      this.mountCarousel();
+      this.mountCarousel(); // [4]
     },
     mountCategorySelector: function() {
       const vcHomeCatSelector = resolve => {
@@ -92,7 +96,7 @@ export default {
         el: '#vc_home_cat_selector',
         render: h => h(vcHomeCatSelector)
       });
-      this.mountFeaturedIcon();
+      this.mountFeaturedIcon(); // [3]
     },
     mountCarousel: function() {
       const vcHomeCarousel = resolve => {
@@ -103,6 +107,18 @@ export default {
       new Vue({
         el: '#vc_home_carousel',
         render: h => h(vcHomeCarousel)
+      });
+      this.mountCommitFetcher(); // [5]
+    },
+    mountCommitFetcher: function() {
+      const vcCommitFetcher = resolve => {
+        require.ensure(['./HomeCommitFetcher.vue'], () => {
+          resolve(require('./HomeCommitFetcher.vue'))
+        })
+      };
+      new Vue({
+        el: '#vc_commit_fetcher',
+        render: h => h(vcCommitFetcher)
       });
     }
   }
