@@ -1,5 +1,6 @@
 <template>
-  <div class="row featured_icon">
+  <div class="row home_featured_icon">
+    <h2>Featured Icon</h2>
     <p>{{ featuredIconCategory }}</p>
     <p>{{ featuredIconId }}</p>
     <img v-bind:src="'img/icons/' + featuredIconCategory + '/' +

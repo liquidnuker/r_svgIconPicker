@@ -1,5 +1,6 @@
 <template>
-  <div class="commit_fetcher">
+  <div class="home_commit_fetcher">
+    <h2>Latest News</h2>
     <ul v-for="i in commits">
       <li>
         <small>{{ i.commit.committer.date }}</small>

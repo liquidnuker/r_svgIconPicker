@@ -1,6 +1,6 @@
 <template>
 <!-- logo/favorites -->
-<header class="row">
+<header class="row main_header">
   <div class="col-sm-4 header_logo_container">logo</div>
   <div class="col-sm-8">
     <!-- FavoriteCount.vue mount -->

@@ -1,11 +1,16 @@
 <template>
   <div class="row svgpker">
-    <div class="row ic_container">
-
-      <!-- vcHeader mount-->
-      <div id="vc-header-mount">          
+    <!-- spreader -->
+    <div class="row container-fluid spreader">
+      <div class="ic_container">
+        <!-- vcHeader mount-->
+        <div id="vc-header-mount">          
+        </div>
+        <!-- end vcHeader mount -->
       </div>
-      <!-- end vcHeader mount -->
+    </div>
+    <!-- /spreader -->
+    <div class="row ic_container">
 
       <div class="row ic_tophover">
         <div class="col-sm-6">
@@ -111,6 +116,15 @@
     </div>  
     <!--end bottom ic_pg-controls -->
   </div>
+  <!-- spreader -->
+  <div class="row container-fluid spreader">
+    <div class="ic_container">
+      <footer class="col-sm-12 row main_footer">
+        mini footer
+      </footer>
+    </div>
+  </div>
+  <!-- /spreader -->
 </div>
 </template>
 <script>

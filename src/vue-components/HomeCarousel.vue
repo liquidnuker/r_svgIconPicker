@@ -1,5 +1,6 @@
 <template>
-<div>
+<div class="home_carousel">
+  <h2>Welcome</h2>
   carousel/introtext
 </div>
 </template>

@@ -1,0 +1,45 @@
+%bg--main {
+  background-color: #999;
+}
+
+%bg--primary {
+  background-color: #ccc;
+}
+
+%bg--secondary {
+  background-color: #666;
+}
+
+%bg--extra1 {
+  background-color: #ccc;
+}
+
+body {
+  @extend %bg--main;
+}
+
+.ic_container {
+  @extend %bg--primary;
+}
+
+.spreader {
+  background-color: #000;
+}
+
+.main_header,
+.main_footer {
+  background-color: #555;
+}
+
+.home_stage,
+.home_news_categories {
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+}
+
+.home_featured_icon,
+.home_commit_fetcher,
+.home_cat_icons,
+.home_carousel {
+  @extend %bg--secondary;
+}

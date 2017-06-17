@@ -1,12 +1,17 @@
 <template>
   <div class="row svgpker">
-    <div class="row ic_container">
-      <!-- vcHeader mount-->
-      <div id="vc-header-mount">          
+    <!-- spreader -->
+    <div class="row container-fluid spreader">
+      <div class="ic_container">
+        <!-- vcHeader mount-->
+        <div id="vc-header-mount">          
+        </div>
+        <!-- end vcHeader mount -->
       </div>
-      <!-- end vcHeader mount -->
-
-      <!-- edit note -->
+    </div>
+    <!-- /spreader -->
+    <div class="row ic_container">
+     <!-- edit note -->
       <div class="modal1_bg" v-if="editNote">
         <div class="modal1_container col-xs-12">
           <label for="currentNote">edit note for: {{ editNoteId }}</label>
@@ -122,7 +127,15 @@
       </div>  
       <!--end bottom ic_pg-controls -->
     </div>
-    <!-- /ic_container -->
+    <!-- spreader -->
+    <div class="row container-fluid spreader">
+      <div class="ic_container">
+        <footer class="col-sm-12 row main_footer">
+          mini footer
+        </footer>
+      </div>
+    </div>
+    <!-- /spreader -->
   </div>
 </template>
 <script>

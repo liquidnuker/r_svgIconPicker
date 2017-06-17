@@ -1,51 +1,58 @@
 <template>
-  <div>
-    <div class="row svgpker">
-      <div class="row ic_container">
+  <div class="row svgpker">
+    <!-- spreader -->
+    <div class="row container-fluid spreader">
+      <div class="ic_container">
         <!-- vcHeader mount-->
         <div id="vc-header-mount">          
         </div>
         <!-- end vcHeader mount -->
-        <!-- featuredicon/carouselintro -->
-        <div class="row stage">
-          <section class="col-sm-4 featured_icon_container">
-            <h2>Featured Icon</h2>
-            <!-- featured-icon mount -->
-            <div id="vc-featured-icon">              
-            </div>
-            <!-- end featured-icon mount -->
-          </section>
-          <div class="col-sm-8 carousel_container">
-            <!-- begin carousel mount -->
-            <div id="vc_home_carousel">              
-            </div>
-            <!-- end carousel mount -->
-          </div>
-        </div>
-        <!-- end featuredicon/carouselintro -->
-        <!-- news/iconcategoryselector -->
-        <div class="row">
-          <section class="col-sm-4 news_container">
-            <h2>Latest News</h2>
-            <!-- begin commit fetcher mount-->
-            <div id="vc_commit_fetcher">
-            </div>
-            <!-- end commit fetcher mount-->
-          </section>
-          <section class="col-sm-8 home_cat_selector">
-            <h2>Icon Categories</h2>
-            <!-- begin cat selector mount -->
-            <div id="vc_home_cat_selector">              
-            </div>
-            <!-- end cat selector mount -->
-          </section>
-        </div>
-        <!-- end news/iconcategoryselector -->
-        <footer class="col-sm-12 row">
-          mini footer        
-        </footer>  
       </div>
     </div>
+    <!-- /spreader -->
+    <div class="row ic_container">
+      <!-- featuredicon/carouselintro -->
+      <div class="row home_stage">
+        <section class="col-sm-4 home_fi_container">
+          <!-- featured-icon mount -->
+          <div id="vc-featured-icon">              
+          </div>
+          <!-- end featured-icon mount -->
+        </section>
+        <div class="col-sm-8 home_carousel_container">
+          <!-- begin carousel mount -->
+          <div id="vc_home_carousel">              
+          </div>
+          <!-- end carousel mount -->
+        </div>
+      </div>
+      <!-- end featuredicon/carouselintro -->
+      <!-- news/iconcategoryselector -->
+      <div class="row home_news_categories">
+        <section class="col-sm-4 home_news_container">
+          <!-- begin commit fetcher mount-->
+          <div id="vc_commit_fetcher">
+          </div>
+          <!-- end commit fetcher mount-->
+        </section>
+        <section class="col-sm-8 home_ic_selector">
+          <!-- begin cat selector mount -->
+          <div id="vc_home_ic_selector">              
+          </div>
+          <!-- end cat selector mount -->
+        </section>
+      </div>
+      <!-- end news/iconcategoryselector -->
+    </div>
+    <!-- spreader -->
+    <div class="row container-fluid spreader">
+      <div class="ic_container">
+        <footer class="col-sm-12 row main_footer">
+          mini footer
+        </footer>
+      </div>
+    </div>
+    <!-- /spreader -->
   </div>
 </template>
 <script>
@@ -81,7 +88,7 @@ export default {
         })
       };
       new Vue({
-        el: '#vc_home_cat_selector',
+        el: '#vc_home_ic_selector',
         render: h => h(vcHomeCatSelector)
       });
       this.mountFeaturedIcon(); // [3]
