@@ -1,19 +1,21 @@
 <template>
   <div class="row svgpker">
     <div class="row ic_container">
+
       <!-- vcHeader mount-->
       <div id="vc-header-mount">          
       </div>
       <!-- end vcHeader mount -->
+
       <div class="row ic_tophover">
         <div class="col-sm-6">
-
           <p>{{ hoveritem }}</p>
         </div>
         <div class="col-sm-6">
           <p>{{ snippet }}</p>
         </div>
       </div>
+
       <!-- breadcrumb/search -->
       <div class="row">
         <div class="col-sm-4 ic_breadcrumb">
@@ -27,6 +29,7 @@
         </div>
       </div>
       <!-- end breadcrumb/search -->
+
       <!-- category/type -->
       <div class="row ic_cattype">
         <div class="col-sm-4">
@@ -49,6 +52,7 @@
         </div>
       </div>
       <!-- end category/type -->
+
       <!--top ic_pg-controls -->
       <div class="col-sm-12 row ic_pg-controls">
         <div class="jpages_pg">
@@ -56,6 +60,7 @@
         </div>          
       </div>  
       <!--end top ic_pg-controls -->
+
       <!-- ic_pg-holder -->
       <div class="row col-sm-12" id="jpages_pg-holder" v-on:mouseout="showIconInfo()">
         <!-- grid view -->
@@ -87,12 +92,8 @@
             <button class="ic_btn" v-on:click="">more info</button>
           </div>  
           <div class="col-sm-5">
-            <!-- svg code -->
-            <pre class="line-numbers" data-start="1">
-              <code class="language-markup">
-                {{ i.svg }}
-              </code>
-            </pre>
+            <!-- svg code -->            
+              <textarea class="col-xs-12">{{ i.svg }}</textarea>
             <!-- end svg code -->
             <button class="ic_btn">copy svg</button>
           </div>              
@@ -101,6 +102,7 @@
       <!-- end list view -->
     </div>
     <!-- end ic_pg-holder -->
+
     <!--bottom ic_pg-controls -->
     <div class="col-sm-12 row ic_pg-controls">
       <div class="jpages_pg">
@@ -122,7 +124,6 @@ import {favoriteExists} from "../js/favoriteexists.js";
 import {removeParamColons} from "../js/removeparamcolons.js";
 import {pager} from "../js/paginator.js";
 import horsey from "../js/vendor/horsey.min.js";
-const Prism = require("prismjs");
 export default {
   data() {
       return {
@@ -137,21 +138,14 @@ export default {
         // filter buttons
         fcVisible: false,
 
-        // grid/list view
         gridView: true,
 
-        // favorites
         favorites: store.favorites,
       }
     },
     mounted: function () {
-      console.log("IconCategories.vue mounted");
       this.checkCategory();
       this.mountHeader();
-      Prism.highlightAll();
-    },
-    updated: function () {
-      Prism.highlightAll();  
     },
     watch: {
       $route: function () {
@@ -283,7 +277,6 @@ export default {
           console.log("already in favorites");
         } else {
           var x = Date().toString();
-          // proceed
           store.favorites.push({
             category: this.currentCategory,
             id: id,
@@ -293,10 +286,8 @@ export default {
             description: desc,
             date: x,
             notes: ""
-
           });
         }
-
       }
     }
 }

@@ -22,7 +22,6 @@ export default {
   },
   mounted: function() {
     this.selected = store.currentCategory;
-    console.log("CategorySelector.vue mounted");
   },
   methods: {
     switchCategory: function(category) {

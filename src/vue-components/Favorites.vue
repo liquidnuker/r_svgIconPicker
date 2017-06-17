@@ -28,6 +28,7 @@
         </div>
       </div>
       <!-- end add new note -->
+
       <!-- breadcrumb/search -->
       <div class="row">
         <div class="col-sm-12 ic_breadcrumb">
@@ -35,6 +36,7 @@
         </div>
       </div>
       <!-- end breadcrumb/search -->
+
       <!-- category/type -->
       <div class="row ic_cattype">
         <div class="col-sm-4">
@@ -54,6 +56,7 @@
         </div>
       </div>
       <!-- end category/type -->
+
       <!--top ic_pg-controls -->
       <div class="col-sm-12 row ic_pg-controls">
         <div class="jpages_pg">
@@ -61,6 +64,7 @@
         </div>          
       </div>  
       <!--end top ic_pg-controls -->
+
       <!-- ic_pg-holder -->
       <div class="row col-sm-12" id="jpages_pg-holder">
         <!-- gridview -->
@@ -100,11 +104,7 @@
             </div>  
             <div class="col-sm-5">
               <!-- svg code -->
-              <pre class="line-numbers" data-start="1">
-                <code class="language-markup">
-                  {{ i.svg }}
-                </code>
-              </pre>
+              <textarea class="col-xs-12">{{ i.svg }}</textarea>
               <!-- end svg code -->
               <button class="ic_btn">copy svg</button>
             </div>
@@ -113,6 +113,7 @@
         <!-- end listview -->
       </div>
       <!-- end ic_pg-holder -->
+
       <!--bottom ic_pg-controls -->
       <div class="col-sm-12 row ic_pg-controls">
         <div class="jpages_pg">
@@ -129,8 +130,6 @@
 import {pager} from "../js/paginator.js";
 import {store} from "../js/store.js";
 import {indexFinder} from "../js/indexfinder.js";
-const Prism = require("prismjs");
-
 export default {
   data () {
     return {
@@ -140,12 +139,13 @@ export default {
       // used for filter.
       currentItems: store.favorites,
 
-      // notes-related
+      // add-notes
       addNewNote: false,
       noteTitle: "",
       note: "",
       noteIndex: "",
 
+      // edit-notes
       editNote: false,
       editNoteId: "",
       currentNote: "",
@@ -153,28 +153,22 @@ export default {
       // filter buttons      
       fcVisible: true,
 
-      // grid/list view
       gridView:  false
     };
   },
   watch: {
     allItems: function () {
-      console.log("favorites triggered");
-
+      // console.log("favorites triggered");
       // destroy paginator instance
       pager.destroy();
-      // optional update, just to be sure
+      // optional
       this.refreshItems();
     }
   },
   mounted: function () {
-    console.log("Favorites.vue mounted");
     this.refreshItems();  
     this.mountHeader();
-    Prism.highlightAll();  
-  },
-  updated: function () {
-    Prism.highlightAll();  
+      
   },
   methods: {
     mountHeader: function() {
@@ -189,8 +183,7 @@ export default {
       });
     },
     toggleGrid: function() {
-      this.gridView = !this.gridView;       
-      
+      this.gridView = !this.gridView;         
     },
     refreshItems: function() {   
       pager.activate();
@@ -208,12 +201,10 @@ export default {
     },
     removeItem: function(id) {
       pager.destroy();
-
       // items change index when filtered, so lets find index by id
       let indexToRemove = indexFinder(id);
       store.favorites.splice(indexToRemove, 1);
       this.currentItems = this.allItems;
-
     },
     editNoteToggle: function(id, notes) {
       this.editNote = true;
@@ -223,26 +214,21 @@ export default {
     addNoteToggle: function(index, id) {
       this.addNewNote = true;
       this.noteTitle = id;
-      // this.noteIndex = index;
     },
-    addNote: function(noteTitle, newNote) {
-    
-    let newNoteIndex = indexFinder(noteTitle);
-    store.favorites[newNoteIndex].notes = newNote;
+    addNote: function(noteTitle, newNote) {    
+      let newNoteIndex = indexFinder(noteTitle);
+      store.favorites[newNoteIndex].notes = newNote;
       
-    // reset + close addNote area
-    this.cancelNote();
+      // reset + close addNote area
+      this.cancelNote();
     },
     cancelNote: function() {
-      // reset notes placeholder
       this.note = "";
-      // close addNote area
       this.addNewNote = false;
     },
     updateNote: function(id, updatedNote) {      
       let indexToUpdate = indexFinder(id);
       store.favorites[indexToUpdate].notes = updatedNote;
-
       this.cancelEdit();
     },
     cancelEdit: function() {
@@ -265,12 +251,6 @@ export default {
         let filteredType = "";
         console.log(typeToFilter);
 
-        // lodash  
-        // filteredType = filter(this.allItems, {
-        //   type: typeToFilter
-        // });
-
-        // vanilla filter
         filteredType = this.allItems.filter(function (el) {
           return el.type === typeToFilter; 
           // && el.property2 === "this2";

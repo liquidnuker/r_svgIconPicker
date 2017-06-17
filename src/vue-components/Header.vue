@@ -20,7 +20,6 @@ export default {
     }
   },
   mounted: function() {
-    console.log("Header.vue mounted");
     this.mountFavorites();
   },
   methods: {

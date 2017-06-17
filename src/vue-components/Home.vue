@@ -74,18 +74,6 @@ export default {
       });
       this.mountCategorySelector(); // [2]
     },
-    mountFeaturedIcon: function() {
-      const vcFeaturedIcon = resolve => {
-        require.ensure(['./FeaturedIcon.vue'], () => {
-          resolve(require('./FeaturedIcon.vue'))
-        })
-      };
-      new Vue({
-        el: '#vc-featured-icon',
-        render: h => h(vcFeaturedIcon)
-      });
-      this.mountCarousel(); // [4]
-    },
     mountCategorySelector: function() {
       const vcHomeCatSelector = resolve => {
         require.ensure(['./HomeCategorySelector.vue'], () => {
@@ -97,6 +85,18 @@ export default {
         render: h => h(vcHomeCatSelector)
       });
       this.mountFeaturedIcon(); // [3]
+    },
+    mountFeaturedIcon: function() {
+      const vcFeaturedIcon = resolve => {
+        require.ensure(['./FeaturedIcon.vue'], () => {
+          resolve(require('./FeaturedIcon.vue'))
+        })
+      };
+      new Vue({
+        el: '#vc-featured-icon',
+        render: h => h(vcFeaturedIcon)
+      });
+      this.mountCarousel(); // [4]
     },
     mountCarousel: function() {
       const vcHomeCarousel = resolve => {

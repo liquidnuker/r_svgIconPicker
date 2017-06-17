@@ -16,11 +16,8 @@ export default {
   },
   watch: {
     favorites: function() {
-      console.log("fc-favorites triggered");
+      // console.log("fc-favorites triggered");
     }
-  },
-  mounted: function () {
-    console.log("FavoriteCount.vue mounted");
   }
 }
 </script>
