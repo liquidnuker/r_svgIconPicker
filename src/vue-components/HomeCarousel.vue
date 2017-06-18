@@ -1,7 +1,7 @@
 <template>
 <div class="home_carousel">
   <h2>Welcome</h2>
-  carousel/introtext
+  <p>carousel/introtext</p>
 </div>
 </template>
 <script>

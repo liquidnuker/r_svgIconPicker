@@ -1,13 +1,13 @@
 %bg--main {
-  background-color: #999;
+  background-color: #1e1e1e;
 }
 
 %bg--primary {
-  background-color: #ccc;
+  background-color: #262626;
 }
 
 %bg--secondary {
-  background-color: #666;
+  background-color: #4b4b4b;
 }
 
 %bg--extra1 {
@@ -23,7 +23,8 @@ body {
 }
 
 .spreader {
-  background-color: #000;
+  background-color: #262626;
+  border-bottom: 1px solid #fff;
 }
 
 .main_header,
@@ -42,4 +43,28 @@ body {
 .home_cat_icons,
 .home_carousel {
   @extend %bg--secondary;
+}
+
+h2 {
+  color: #f5f3da;
+}
+
+p,
+small {
+  color: #d8d8d8;
+}
+
+.ic_favorites_badge {
+  background-color: #c32349;
+  color: #f5f3da;
+}
+
+.home_cat_icons {
+  .icon_holder {
+    background-color: #f3f5da;
+
+    p {
+      color: #3b443f;
+    }
+  }
 }

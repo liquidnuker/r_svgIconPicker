@@ -2,7 +2,7 @@
 <div class="ic_favorites">
     <p v-if="favorites.length > 0">
       <a :href="'index.html#/favorites'">favorites:</a>
-      <span class="ic_favorites_badge">{{ favorites.length }}</span>
+      <span class="ic_favorites_badge"><p>{{ favorites.length }}</p></span>
     </p>
   </div>  
 </template>

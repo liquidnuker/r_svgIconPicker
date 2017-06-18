@@ -38,12 +38,14 @@ footer {
 .home_fi_container h2,
 .home_news_container h2 {
   font-weight: bold;
+  border-bottom: 1px dotted #fff;
   margin-bottom: 4px;
 }
 
 .home_ic_selector h2 {
   font-weight: bold;
   margin: 4px;
+  border-bottom: 1px dotted #fff;
 }
 
 .home_cat_icons >div:hover img {
@@ -68,5 +70,11 @@ footer {
 
   p {
     font-size: 0.875em; /* 14px/16=0.875em */
+  }
+
+  li {
+    border-bottom: 1px dotted #fff;
+    margin-bottom: 10px;
+    padding-bottom: 4px;
   }
 }

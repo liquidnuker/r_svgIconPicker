@@ -117,9 +117,10 @@
   .ic_favorites_badge {
     padding: 2px 4px 2px 4px; /* trbl */
     display: inline-block;
-    border-radius: 4px;
-    background-color: #666;
-    color: #fff;
+    border-radius: 2px;
+      p {
+        font-weight: bold;
+      }
   }
 
   .ic_breadcrumb {
