@@ -1,3 +1,4 @@
+// backgrounds
 %bg--main {
   background-color: #1e1e1e;
 }
@@ -14,77 +15,28 @@
   background-color: #ccc;
 }
 
-body {
-  @extend %bg--main;
-}
-
-.ic_container {
-  @extend %bg--primary;
-  border-left: 1px solid #000;
-  border-right: 1px solid #000;
-}
-
-.spreader,
-.spreader2 {
-  background-color: #262626;
-}
-
-.spreader {
-  border-bottom: 1px solid #fff;
-}
-
-.spreader2 {
-  border-top: 1px solid #fff;
-}
-
-.main_header,
-.main_footer {
-  background-color: #555;
-}
-
-.home_stage,
-.home_news_categories {
-  // border-left: 1px solid #000;
-  // border-right: 1px solid #000;
-}
-
-.home_featured_icon,
-.home_commit_fetcher,
-.home_cat_icons,
-.home_carousel {
-  @extend %bg--secondary;
-}
-
-h2 {
-  color: #f5f3da;
-}
-
-a {
-  color: #d1d4b9;
-  &:hover {
-    color: #fff;
-    text-decoration: none;  
-  }
-}
-
-p,
-small {
+// fonts
+%font_color--primary {
   color: #d8d8d8;
 }
 
-.ic_favorites_badge {
-  background-color: #c32349;
-  p {
-    color: #fff;
-  }
+%link_color {
+  color: #d1d4b9;
 }
 
-.home_cat_icons {
-  .icon_holder {
-    background-color: #f3f5da;
+%link_color--hover {
+  color: #fff;
+}
 
-    p {
-      color: #3b443f;
-    }
-  }
+%font_color--h2 {
+  color: #f5f3da;
+}
+
+// unsorted
+%color--pink {
+  background-color: #c32349;
+}
+
+%icon_holder_text {
+  color: #3b443f;
 }

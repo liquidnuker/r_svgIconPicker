@@ -24,7 +24,8 @@
       <!-- breadcrumb/search -->
       <div class="row">
         <div class="col-sm-4 ic_breadcrumb">
-          <a href="index.html#/">Home</a> <p>&gt;</p>&nbsp;{{ this.$route.params.category }}
+          <a href="index.html#/">Home</a> <p>&gt;</p>&nbsp;
+          <p>{{ this.$route.params.category }}</p>
         </div>
         <div class="col-sm-8 ic_search">
           <!-- begin search -->

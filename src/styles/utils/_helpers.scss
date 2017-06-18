@@ -5,6 +5,8 @@
   border-radius: $var + px;
 }
 
+// 
+// ==================================================/
 %pos--absolute {
   position: absolute;
 }
@@ -17,9 +19,41 @@
   position: fixed;
 }
 
+// 
+// ==================================================/
+%display--block {
+  display: block;
+}
+
+%display--inline-block {
+  display: inline-block;
+}
+
+%display--inline {
+  display: inline;
+}
+
+// 
+// ==================================================/
 %mp--0 {
   margin: 0;
   padding: 0;
+}
+
+%margin--4 {
+  margin: 4px;
+}
+
+%margin--6 {
+  margin: 6px;
+}
+
+%margin_top--4 {
+  margin-top: 4px;
+}
+
+%margin_bottom--4 {
+  margin-bottom: 4px;
 }
 
 %margin--auto {
@@ -35,10 +69,16 @@
   padding: 6px;
 }
 
-%br--4 {
-  border-radius: 4px;
+%padd_top--4 {
+  padding-top: 4px;
 }
 
+%padd_bottom--4 {
+  padding-bottom: 4px;
+}
+
+// 
+// ==================================================/
 %text--left {
   text-align: left;
 }
@@ -49,6 +89,16 @@
 
 %text--center {
   text-align: center;
+}
+
+%font--bold {
+  font-weight: bold;
+}
+
+// 
+// ==================================================/
+%br--4 {
+  border-radius: 4px;
 }
 
 %img--responsive {

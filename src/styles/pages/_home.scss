@@ -1,4 +1,5 @@
 body {
+  @extend %bg--main;
   @extend %system_normal--300;
   @extend %pos--relative;
 }
@@ -8,7 +9,7 @@ body {
 
   img {
     @extend %margin--auto;
-    display: block;    
+    @extend %display--block;    
     height: 110px;
   }
 
@@ -26,7 +27,6 @@ body {
 .home_carousel,
 .header_logo_container,
 .home_news_container,
-// .home_cat_icons > div
 footer {
   @extend %padd--4;
 }
@@ -49,23 +49,25 @@ footer {
 .home_carousel_container h2,
 .home_fi_container h2,
 .home_news_container h2 {
-  font-weight: bold;
+  @extend %font--bold;
+  @extend %margin_bottom--4;
+  @extend %padd_bottom--4;
   border-bottom: 1px dotted #87937b;
-  margin-bottom: 4px;
-  padding-bottom: 4px;
+ 
 }
 
 .home_ic_selector h2 {
-  font-weight: bold;
-  margin: 4px;
+  @extend %font--bold;
+  @extend %margin--4;
+  @extend %padd_bottom--4;
   border-bottom: 1px dotted #87937b;
-  padding-bottom: 4px;
+  
 }
 
 .home_cat_icons {
   img {
-    margin-top: 4px;
-    background-color: #d1d4b9;
+    @extend %margin_top--4;
+    @extend %link_color;
   }
 }
 
@@ -73,12 +75,11 @@ footer {
   .icon_holder {
     @extend %padd--4;
     @extend %bg--extra1;
-    margin: 4px;    
+    @extend %margin--4;    
     border: 1px solid #c32349;
   }
 }
 
-// commit_fetcher
 .home_commit_fetcher {
   @extend %padd--4;
   height: 100%;
@@ -90,20 +91,85 @@ footer {
   }
 
   li {
-    // border-bottom: 1px dotted #fff;
-    margin-top: 4px;
+    @extend %margin_top--4;
     margin-bottom: 6px;
-    padding-bottom: 4px;
+    @extend %padd_bottom--4;
   }
 
   .commit_fetcher_sha {
-    display: inline-block;
-
+    @extend %display--inline-block;
     background-color: #f5f3da;
     color: #000;
   }
 
   .commit_fetcher_message {
-    display: inline;
+    @extend %display--inline;
+  }
+}
+
+// home colors
+// ==================================================/
+h2 {
+  @extend %font_color--h2;
+}
+
+a {
+  @extend %link_color;
+  &:hover {
+    @extend %link_color--hover;
+    text-decoration: none;  
+  }
+}
+
+p,
+small {
+  @extend %font_color--primary;
+}
+
+.ic_container {
+  @extend %bg--primary;
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+}
+
+.spreader,
+.spreader2 {
+  @extend %bg--primary;
+}
+
+.spreader {
+  border-bottom: 1px solid #fff;
+}
+
+.spreader2 {
+  border-top: 1px solid #fff;
+}
+
+.main_header,
+.main_footer {
+  background-color: #555;
+}
+
+.home_featured_icon,
+.home_commit_fetcher,
+.home_cat_icons,
+.home_carousel {
+  @extend %bg--secondary;
+}
+
+.ic_favorites_badge {
+  @extend %color--pink;
+  p {
+    @extend %link_color--hover;
+  }
+}
+
+.home_cat_icons {
+  .icon_holder {
+    @extend %font_color--h2;
+
+    p {
+      @extend %icon_holder_text;
+    }
   }
 }
