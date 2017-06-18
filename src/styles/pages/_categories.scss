@@ -13,9 +13,8 @@
   }
 
   .ic_tooltip {
-    text-align: center;
-    // display: none;
-    visibility: hidden;
+    @extend %text--center;
+    @extend %hidden;
   }
 
   .ic_iconbox {
@@ -27,14 +26,14 @@
     img {
       @include center-block;
       @extend %pos--relative;
-      margin-top: 4px;
-      margin-bottom: 4px;
+      @extend %margin_top--4;
+      @extend %margin_bottom--4;
       height: 40px;
     }
   }
 
   .ic_iconbox:hover .ic_tooltip {
-    visibility: visible;
+    @extend %visible;
   }
 
   .ic_listview {
@@ -54,8 +53,8 @@
 
     .ic_list_id {
       @extend %padd--4;
-      background-color: #ccc;
-      font-weight: bold;
+      @extend %font--bold;
+      background-color: #ccc;      
     }
 
     .ic_listview_details {
@@ -64,32 +63,30 @@
     }
 
     button {
-      margin-top: 4px;
+      @extend %margin_top--4;
     }
   }
 
   .ic_filter-controls {
     @extend %padd--4;
-    position: relative;
-    display: inline-block;
+    @extend %pos--relative;
+    @extend %display--inline-block;
     vertical-align: middle;
     background-color: #ccc;
 
     img {
-      display: inline-block;
+      @extend %display--inline-block;
       height: 24px;      
       vertical-align: text-bottom;
       cursor: pointer;
     }  
 
     .ic_gridlist_toggle {
-      display: inline-block;
+      @extend %display--inline-block;
       margin-left: 6px;
       vertical-align: text-bottom;
     }  
-  }
-
-  
+  }  
 
   .ic_btn {
     padding: 0px 6px 0px 6px; /* trbl */
@@ -115,22 +112,33 @@
   }
 
   .ic_favorites_badge {
+    @extend %display--inline-block;
     padding: 2px 4px 2px 4px; /* trbl */
-    display: inline-block;
     border-radius: 2px;
-      p {
-        font-weight: bold;
+    
+    p {
+        @extend %font--bold;
       }
-  }
+    }
 
   .ic_breadcrumb {
     @extend %padd--4;
-
+    @extend %bg--secondary;
     p {
       display: inline-block;
+      }
     }
-  }
 
+  .bc_search_container,
+  .ic_cattype_container,
+  .pg_container,
+  .ic_pg_container {
+    @extend %bg--secondary;
+    @extend %margin_bottom--4;
+    margin-left: 4px;
+    margin-right: 4px;
+  }
+ 
   .ic_category_select {
     @extend %padd--4;
   }
@@ -143,12 +151,13 @@
       background-repeat: no-repeat;
       padding-left: 20px;
     }
+
+    label {
+      @extend %font_color--primary;
+    }
   }
 
   .jpages_pg {
     @extend %padd--4;
   }
-
 }
-
-

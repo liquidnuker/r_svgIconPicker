@@ -59,13 +59,10 @@
 // import Vue from "vue";
 export default {
   data () {
-    return {
-    
+    return {    
     }
   },
   mounted: function () {
-    console.log("home.vue mounted");
-    // this.refreshItems();  
     this.mountHeader(); // [1]
   },
   methods: {

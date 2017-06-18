@@ -33,6 +33,20 @@
   display: inline;
 }
 
+%display--none {
+  display: none;
+}
+
+%visible {
+  visibility: visible;
+}
+
+%hidden {
+  visibility: hidden;
+}
+
+
+
 // 
 // ==================================================/
 %mp--0 {

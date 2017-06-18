@@ -22,7 +22,7 @@
       </div>
 
       <!-- breadcrumb/search -->
-      <div class="row">
+      <div class="row bc_search_container">
         <div class="col-sm-4 ic_breadcrumb">
           <a href="index.html#/">Home</a> <p>&gt;</p>&nbsp;
           <p>{{ this.$route.params.category }}</p>
@@ -37,7 +37,7 @@
       <!-- end breadcrumb/search -->
 
       <!-- category/type -->
-      <div class="row ic_cattype">
+      <div class="row ic_cattype_container">
         <div class="col-sm-4">
           <!-- category selector mount -->
           <div id="cat-selector-mount">
@@ -60,61 +60,67 @@
       <!-- end category/type -->
 
       <!--top ic_pg-controls -->
-      <div class="col-sm-12 row ic_pg-controls">
-        <div class="jpages_pg">
+      <div class="row pg_container">
+        <div class="col-sm-12 ic_pg-controls">
+          <div class="jpages_pg">
           top paginator
-        </div>          
-      </div>  
+          </div>          
+        </div>  
+      </div>
       <!--end top ic_pg-controls -->
 
       <!-- ic_pg-holder -->
-      <div class="row col-sm-12" id="jpages_pg-holder" v-on:mouseout="showIconInfo()">
-        <!-- grid view -->
-        <div v-if="gridView" v-for="(i, index) in currentItems" :key="i.id">
-          <div class="col-xs-3 col-sm-2 ic_iconbox" id="ic_iconbox" 
-          v-on:mouseover="showIconInfo(i.id)" 
-          v-on:click="selectitem(i.svg)">          
-          <p class="ic_toggle">{{ i.id }}</p>
-          <img v-bind:src="'img/icons/' + currentCategory + '/' + i.src" v-bind:alt="i.id">
-          <div class="ic_tooltip">
-            <button class="ic_btn" v-on:click="addFavorite(i.id, i.src, i.type, i.svg, i.description)">add</button>
-            <button class="ic_btn" v-on:click="">svg</button>  
-          </div>        
+      <div class="row ic_pg_container">
+        <div class="col-sm-12" id="jpages_pg-holder" v-on:mouseout="showIconInfo()">
+          <!-- grid view -->
+          <div v-if="gridView" v-for="(i, index) in currentItems" :key="i.id">
+            <div class="col-xs-3 col-sm-2 ic_iconbox" id="ic_iconbox" 
+            v-on:mouseover="showIconInfo(i.id)" 
+            v-on:click="selectitem(i.svg)">          
+            <p class="ic_toggle">{{ i.id }}</p>
+            <img v-bind:src="'img/icons/' + currentCategory + '/' + i.src" v-bind:alt="i.id">
+            <div class="ic_tooltip">
+              <button class="ic_btn" v-on:click="addFavorite(i.id, i.src, i.type, i.svg, i.description)">add</button>
+              <button class="ic_btn" v-on:click="">svg</button>  
+            </div>        
+          </div>
         </div>
-      </div>
-      <!-- end grid view -->
-      <!-- list view -->
-      <div v-else>
-        <div class="col-sm-12 row ic_listview">
-          <p class="ic_list_id">{{ i.id }}</p>
-          <div class="col-sm-2">
-            <div class="ic_list_iconbox">
-              <img v-bind:src="'img/icons/' + currentCategory + '/' + i.src" v-bind:alt="i.id">
-            </div>
-          </div> 
-          <div class="col-sm-5 ic_listview_details">            
-            <p>{{ i.description }}</p>
-            <button class="ic_btn" v-on:click="addFavorite(i.id, i.src, i.type, i.svg)">add to favorites</button>
-            <button class="ic_btn" v-on:click="">more info</button>
-          </div>  
-          <div class="col-sm-5">
-            <!-- svg code -->            
+        <!-- end grid view -->
+        <!-- list view -->
+        <div v-else>
+          <div class="col-sm-12 row ic_listview">
+            <p class="ic_list_id">{{ i.id }}</p>
+            <div class="col-sm-2">
+              <div class="ic_list_iconbox">
+                <img v-bind:src="'img/icons/' + currentCategory + '/' + i.src" v-bind:alt="i.id">
+              </div>
+            </div> 
+            <div class="col-sm-5 ic_listview_details">            
+              <p>{{ i.description }}</p>
+              <button class="ic_btn" v-on:click="addFavorite(i.id, i.src, i.type, i.svg)">add to favorites</button>
+              <button class="ic_btn" v-on:click="">more info</button>
+            </div>  
+            <div class="col-sm-5">
+              <!-- svg code -->            
               <textarea class="col-xs-12">{{ i.svg }}</textarea>
-            <!-- end svg code -->
-            <button class="ic_btn">copy svg</button>
-          </div>              
-        </div>
-      </div>   
-      <!-- end list view -->
+              <!-- end svg code -->
+              <button class="ic_btn">copy svg</button>
+            </div>              
+          </div>
+        </div>   
+        <!-- end list view -->
+      </div>
     </div>
     <!-- end ic_pg-holder -->
 
     <!--bottom ic_pg-controls -->
-    <div class="col-sm-12 row ic_pg-controls">
-      <div class="jpages_pg">
-        top paginator
-      </div>          
-    </div>  
+    <div class="row pg_container">
+      <div class="col-sm-12 ic_pg-controls">
+        <div class="jpages_pg">
+          top paginator
+        </div>          
+      </div>  
+    </div> 
     <!--end bottom ic_pg-controls -->
   </div>
   <!-- spreader -->
