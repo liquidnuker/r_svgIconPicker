@@ -1,12 +1,16 @@
 <template>
   <div class="row home_featured_icon">
     <h2>Featured Icon</h2>
-    <p>{{ featuredIconCategory }}</p>
-    <p>{{ featuredIconId }}</p>
-    <img v-bind:src="'img/icons/' + featuredIconCategory + '/' +
-    featuredIconSrc" v-bind:alt="'featured icon: ' + featuredIconId">
-
-  </div>
+<!-- <img v-bind:src="'img/icons/' + featuredIconCategory + '/' +
+  featuredIconSrc" v-bind:alt="'featured icon: ' + featuredIconId"> -->
+  <img src="img/icons/ui/check1.svg">
+  <p>{{ featuredIconId }}</p>
+  <p class="featured_icon_category">Category: 
+  <a v-bind:href="'index.html#/category/' + featuredIconCategory">
+      {{ featuredIconCategory }}
+    </a>
+  </p>
+</div>
 </template>
 <script>
 import 'whatwg-fetch';

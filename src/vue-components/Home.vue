@@ -45,7 +45,7 @@
       <!-- end news/iconcategoryselector -->
     </div>
     <!-- spreader -->
-    <div class="row container-fluid spreader">
+    <div class="row container-fluid spreader2">
       <div class="ic_container">
         <footer class="col-sm-12 row main_footer">
           mini footer

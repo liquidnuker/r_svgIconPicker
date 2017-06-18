@@ -20,11 +20,21 @@ body {
 
 .ic_container {
   @extend %bg--primary;
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+}
+
+.spreader,
+.spreader2 {
+  background-color: #262626;
 }
 
 .spreader {
-  background-color: #262626;
   border-bottom: 1px solid #fff;
+}
+
+.spreader2 {
+  border-top: 1px solid #fff;
 }
 
 .main_header,
@@ -34,8 +44,8 @@ body {
 
 .home_stage,
 .home_news_categories {
-  border-left: 1px solid #000;
-  border-right: 1px solid #000;
+  // border-left: 1px solid #000;
+  // border-right: 1px solid #000;
 }
 
 .home_featured_icon,
@@ -49,6 +59,14 @@ h2 {
   color: #f5f3da;
 }
 
+a {
+  color: #d1d4b9;
+  &:hover {
+    color: #fff;
+    text-decoration: none;  
+  }
+}
+
 p,
 small {
   color: #d8d8d8;
@@ -56,7 +74,9 @@ small {
 
 .ic_favorites_badge {
   background-color: #c32349;
-  color: #f5f3da;
+  p {
+    color: #fff;
+  }
 }
 
 .home_cat_icons {

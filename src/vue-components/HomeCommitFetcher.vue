@@ -3,9 +3,9 @@
     <h2>Latest News</h2>
     <ul v-for="i in commits">
       <li>
-        <small>{{ i.commit.committer.date }}</small>
-        <p>{{ i.sha.slice(0, 7) }}</p>
-        <small>{{ i.commit.message }}</small>
+        <p>{{ i.commit.committer.date }}</p>
+        <p class="commit_fetcher_sha">{{ i.sha.slice(0, 7) }}</p>
+        <p class="commit_fetcher_message">{{ i.commit.message }}</p>
       </li>
     </ul>
   </div>

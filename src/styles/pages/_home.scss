@@ -1,13 +1,25 @@
 body {
   @extend %system_normal--300;
+  @extend %pos--relative;
 }
 
 .home_featured_icon {
   @extend %padd--4;
+
   img {
     @extend %margin--auto;
     display: block;    
     height: 110px;
+  }
+
+  img,
+  p {
+    @extend %text--center;
+  }
+
+  .featured_icon_category {
+    @include font-size(12px);
+    margin: 4px 0 4px 0; /* trbl */
   }
 }
 
@@ -38,26 +50,31 @@ footer {
 .home_fi_container h2,
 .home_news_container h2 {
   font-weight: bold;
-  border-bottom: 1px dotted #fff;
+  border-bottom: 1px dotted #87937b;
   margin-bottom: 4px;
+  padding-bottom: 4px;
 }
 
 .home_ic_selector h2 {
   font-weight: bold;
   margin: 4px;
-  border-bottom: 1px dotted #fff;
+  border-bottom: 1px dotted #87937b;
+  padding-bottom: 4px;
 }
 
-.home_cat_icons >div:hover img {
-  background-color: #fff;
+.home_cat_icons {
+  img {
+    margin-top: 4px;
+    background-color: #d1d4b9;
+  }
 }
 
 .home_cat_icons {
   .icon_holder {
     @extend %padd--4;
     @extend %bg--extra1;
-    margin: 4px;
-    
+    margin: 4px;    
+    border: 1px solid #c32349;
   }
 }
 
@@ -69,12 +86,24 @@ footer {
   padding-bottom: 10px;
 
   p {
-    font-size: 0.875em; /* 14px/16=0.875em */
+    @include font-size(12px);
   }
 
   li {
-    border-bottom: 1px dotted #fff;
-    margin-bottom: 10px;
+    // border-bottom: 1px dotted #fff;
+    margin-top: 4px;
+    margin-bottom: 6px;
     padding-bottom: 4px;
+  }
+
+  .commit_fetcher_sha {
+    display: inline-block;
+
+    background-color: #f5f3da;
+    color: #000;
+  }
+
+  .commit_fetcher_message {
+    display: inline;
   }
 }
