@@ -74,7 +74,6 @@ footer {
 .home_cat_icons {
   .icon_holder {
     @extend %padd--4;
-    @extend %bg--extra1;
     @extend %margin--4;    
     border: 1px solid #c32349;
   }
@@ -166,7 +165,7 @@ small {
 
 .home_cat_icons {
   .icon_holder {
-    @extend %font_color--h2;
+    background-color: #f5f3da;
 
     p {
       @extend %icon_holder_text;
