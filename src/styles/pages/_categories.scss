@@ -30,11 +30,21 @@
       @extend %margin_bottom--4;
       height: 40px;
     }
+
+    >div {
+      background-color: #f5f3da;
+    }
+
+    .ic_toggle {
+      @extend %icon_holder_text;
+      margin-left: 4px;
+    }
+
+    &:hover .ic_tooltip {
+      @extend %visible;
+    }
   }
 
-  .ic_iconbox:hover .ic_tooltip {
-    @extend %visible;
-  }
 
   .ic_listview {
     @extend %padd--4;

@@ -74,15 +74,16 @@
         <div class="col-sm-12" id="jpages_pg-holder" v-on:mouseout="showIconInfo()">
           <!-- grid view -->
           <div v-if="gridView" v-for="(i, index) in currentItems" :key="i.id">
-            <div class="col-xs-3 col-sm-2 ic_iconbox" id="ic_iconbox" 
-            v-on:mouseover="showIconInfo(i.id)" 
-            v-on:click="selectitem(i.svg)">          
-            <p class="ic_toggle">{{ i.id }}</p>
-            <img v-bind:src="'img/icons/' + currentCategory + '/' + i.src" v-bind:alt="i.id">
-            <div class="ic_tooltip">
-              <button class="ic_btn" v-on:click="addFavorite(i.id, i.src, i.type, i.svg, i.description)">add</button>
-              <button class="ic_btn" v-on:click="">svg</button>  
-            </div>        
+            <div class="col-xs-3 col-sm-2 ic_iconbox" id="ic_iconbox">
+              <div v-on:mouseover="showIconInfo(i.id)" 
+              v-on:click="selectitem(i.svg)">          
+              <p class="ic_toggle">{{ i.id }}</p>
+              <img v-bind:src="'img/icons/' + currentCategory + '/' + i.src" v-bind:alt="i.id">
+              <div class="ic_tooltip">
+                <button class="ic_btn" v-on:click="addFavorite(i.id, i.src, i.type, i.svg, i.description)">add</button>
+                <button class="ic_btn" v-on:click="">svg</button>  
+              </div>        
+            </div>
           </div>
         </div>
         <!-- end grid view -->

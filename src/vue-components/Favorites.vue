@@ -35,7 +35,7 @@
       <!-- end add new note -->
 
       <!-- breadcrumb/search -->
-      <div class="row">
+      <div class="row bc_search_container">
         <div class="col-sm-12 ic_breadcrumb">
           <a href="index.html#/">Home</a> &gt; Favorites
         </div>
@@ -43,7 +43,7 @@
       <!-- end breadcrumb/search -->
 
       <!-- category/type -->
-      <div class="row ic_cattype">
+      <div class="row ic_cattype_container">
         <div class="col-sm-4">
           extra
         </div>
@@ -63,68 +63,74 @@
       <!-- end category/type -->
 
       <!--top ic_pg-controls -->
-      <div class="col-sm-12 row ic_pg-controls">
-        <div class="jpages_pg">
-          top paginator
-        </div>          
-      </div>  
+      <div class="row pg_container">
+        <div class="col-sm-12 row ic_pg-controls">
+          <div class="jpages_pg">
+            top paginator
+          </div>          
+        </div>  
+      </div>
       <!--end top ic_pg-controls -->
 
       <!-- ic_pg-holder -->
-      <div class="row col-sm-12" id="jpages_pg-holder">
-        <!-- gridview -->
-        <div v-if="gridView" v-for="(i, index) in currentItems" :key="i">
-          <div class="col-xs-3 col-sm-2 ic_iconbox" id="ic_iconbox">          
-            <p class="ic_toggle">{{ i.id }}</p>
-            <img v-bind:src="'img/icons/' + i.category + '/' + i.src" v-bind:alt="i.id">
-            <div class="ic_tooltip">
-              <button class="ic_btn" v-on:click="removeItem(i.id)">remove</button>
-            </div>        
+      <div class="row ic_pg_container">
+        <div class="col-sm-12" id="jpages_pg-holder">
+          <!-- gridview -->
+          <div v-if="gridView" v-for="(i, index) in currentItems" :key="i">
+            <div class="col-xs-3 col-sm-2 ic_iconbox" id="ic_iconbox">          
+              <p class="ic_toggle">{{ i.id }}</p>
+              <img v-bind:src="'img/icons/' + i.category + '/' + i.src" v-bind:alt="i.id">
+              <div class="ic_tooltip">
+                <button class="ic_btn" v-on:click="removeItem(i.id)">remove</button>
+              </div>        
+            </div>
           </div>
+          <!-- end gridview -->
+          <!-- listview -->
+          <div v-else>
+            <div class="col-sm-12 row ic_listview">
+              <div class="row favorites_list_title">
+                <p class="ic_list_id">{{ i.id }}</p>
+                <button class="ic_btn" v-on:click="removeItem(i.id)">remove from favorites</button>
+              </div>
+              <p class="favorites_category">category: {{ i.category }}</p>
+              <div class="col-sm-2">
+                <div class="ic_list_iconbox">
+                  <img v-bind:src="'img/icons/' + i.category + '/' + i.src" v-bind:alt="i.id">
+                </div>
+              </div> 
+              <div class="col-sm-5 ic_listview_details">           
+                <p>{{ i.description }}</p>
+                <div v-if="i.notes !==''">
+                  <p v-model="i.notes">{{ i.notes }}</p>
+                  <button class="ic_btn" v-on:click="editNoteToggle(i.id, i.notes)">update note</button>
+                  <button class="ic_btn" v-on:click="deleteNote(i.id)">delete note</button>
+                </div>
+                <div v-else>
+                  <button class="ic_btn" v-on:click="addNoteToggle(index, i.id)">add note for {{ i.id }}</button>
+                </div>
+              </div>  
+              <div class="col-sm-5">
+                <!-- svg code -->
+                <textarea class="col-xs-12">{{ i.svg }}</textarea>
+                <!-- end svg code -->
+                <button class="ic_btn">copy svg</button>
+              </div>
+            </div>              
+          </div>
+          <!-- end listview -->
         </div>
-        <!-- end gridview -->
-        <!-- listview -->
-        <div v-else>
-          <div class="col-sm-12 row ic_listview">
-            <div class="row favorites_list_title">
-              <p class="ic_list_id">{{ i.id }}</p>
-              <button class="ic_btn" v-on:click="removeItem(i.id)">remove from favorites</button>
-            </div>
-            <p class="favorites_category">category: {{ i.category }}</p>
-            <div class="col-sm-2">
-              <div class="ic_list_iconbox">
-                <img v-bind:src="'img/icons/' + i.category + '/' + i.src" v-bind:alt="i.id">
-              </div>
-            </div> 
-            <div class="col-sm-5 ic_listview_details">           
-              <p>{{ i.description }}</p>
-              <div v-if="i.notes !==''">
-                <p v-model="i.notes">{{ i.notes }}</p>
-                <button class="ic_btn" v-on:click="editNoteToggle(i.id, i.notes)">update note</button>
-                <button class="ic_btn" v-on:click="deleteNote(i.id)">delete note</button>
-              </div>
-              <div v-else>
-                <button class="ic_btn" v-on:click="addNoteToggle(index, i.id)">add note for {{ i.id }}</button>
-              </div>
-            </div>  
-            <div class="col-sm-5">
-              <!-- svg code -->
-              <textarea class="col-xs-12">{{ i.svg }}</textarea>
-              <!-- end svg code -->
-              <button class="ic_btn">copy svg</button>
-            </div>
-          </div>              
-        </div>
-        <!-- end listview -->
       </div>
       <!-- end ic_pg-holder -->
 
       <!--bottom ic_pg-controls -->
-      <div class="col-sm-12 row ic_pg-controls">
-        <div class="jpages_pg">
-          top paginator
-        </div>          
-      </div>  
+      <div class="row pg_container">
+        <div class="col-sm-12 row ic_pg-controls">
+          <div class="jpages_pg">
+            top paginator
+          </div>          
+        </div>  
+      </div>
       <!--end bottom ic_pg-controls -->
     </div>
     <!-- spreader -->
