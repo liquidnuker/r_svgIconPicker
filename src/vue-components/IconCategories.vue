@@ -138,6 +138,7 @@
 <script>
 // import Vue from "vue";
 import 'whatwg-fetch';
+import {inject} from "../js/componentinjector.js";
 import {checkStatus, parseJSON} from "../js/fetchutils.js";
 import {store} from "../js/store.js";
 import {iconCategories} from "../js/iconcategories.js";
@@ -182,10 +183,7 @@ export default {
             resolve(require('./Header.vue'))
           })
         };
-        new Vue({
-          el: '#vc-header-mount',
-          render: h => h(vcHeader)
-        });
+        inject('#vc-header-mount', vcHeader);
       },
       mountCatSelector: function () {
         const vcCatSelector = resolve => {
@@ -193,10 +191,7 @@ export default {
             resolve(require('./CategorySelector.vue'))
           })
         };
-        new Vue({
-          el: '#cat-selector-mount',
-          render: h => h(vcCatSelector)
-        });
+        inject('#cat-selector-mount', vcCatSelector);
       },
       refreshItems: function () {
         this.favorites = store.favorites;

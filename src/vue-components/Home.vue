@@ -57,6 +57,7 @@
 </template>
 <script>
 // import Vue from "vue";
+import {inject} from "../js/componentinjector.js";
 export default {
   data () {
     return {    
@@ -72,10 +73,7 @@ export default {
           resolve(require('./Header.vue'))
         })
       };
-      new Vue({
-        el: '#vc-header-mount',
-        render: h => h(vcHeader)
-      });
+      inject('#vc-header-mount', vcHeader);
       this.mountCategorySelector(); // [2]
     },
     mountCategorySelector: function() {
@@ -84,10 +82,7 @@ export default {
           resolve(require('./HomeCategorySelector.vue'))
         })
       };
-      new Vue({
-        el: '#vc_home_ic_selector',
-        render: h => h(vcHomeCatSelector)
-      });
+      inject('#vc_home_ic_selector', vcHomeCatSelector);
       this.mountFeaturedIcon(); // [3]
     },
     mountFeaturedIcon: function() {
@@ -96,10 +91,7 @@ export default {
           resolve(require('./FeaturedIcon.vue'))
         })
       };
-      new Vue({
-        el: '#vc-featured-icon',
-        render: h => h(vcFeaturedIcon)
-      });
+      inject('#vc-featured-icon', vcFeaturedIcon);
       this.mountCarousel(); // [4]
     },
     mountCarousel: function() {
@@ -108,10 +100,7 @@ export default {
           resolve(require('./HomeCarousel.vue'))
         })
       };
-      new Vue({
-        el: '#vc_home_carousel',
-        render: h => h(vcHomeCarousel)
-      });
+      inject('#vc_home_carousel', vcHomeCarousel);
       this.mountCommitFetcher(); // [5]
     },
     mountCommitFetcher: function() {
@@ -120,10 +109,7 @@ export default {
           resolve(require('./HomeCommitFetcher.vue'))
         })
       };
-      new Vue({
-        el: '#vc_commit_fetcher',
-        render: h => h(vcCommitFetcher)
-      });
+      inject('#vc_commit_fetcher', vcCommitFetcher);
     }
   }
 }
