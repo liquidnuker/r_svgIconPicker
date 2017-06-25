@@ -1,7 +1,7 @@
 .favorites_list_title {
-  // background-color: #000;
   p {
     display: inline-block;
+    margin-left: -4px;
   }
 
   button {
@@ -11,4 +11,17 @@
 
 .favorites_category {
   margin-bottom: 4px;
+}
+
+.fav_ic_iconbox {
+  @extend %padd--4;
+}
+
+.fav_ic_iconbox:hover .ic_tooltip {
+  visibility: visible;
+}
+
+.fav_ic_holder {
+  background-color: #f5f3da;
+  border: 1px solid #c32349;
 }

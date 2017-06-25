@@ -90,7 +90,9 @@
         <!-- list view -->
         <div v-else>
           <div class="col-sm-12 row ic_listview">
-            <p class="ic_list_id">{{ i.id }}</p>
+            <p class="ic_list_id">
+              <a href="#">{{ i.id }}</a>
+            </p>
             <div class="col-sm-2">
               <div class="ic_list_iconbox">
                 <img v-bind:src="'img/icons/' + currentCategory + '/' + i.src" v-bind:alt="i.id">

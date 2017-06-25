@@ -12,7 +12,7 @@ const pager = {
       delay: 0, // to remove fade
       fallback: 0, // to remove fade
       startPage: 1,
-      perPage: 4,
+      perPage: 18,
       midRange: 5,
     });
   },

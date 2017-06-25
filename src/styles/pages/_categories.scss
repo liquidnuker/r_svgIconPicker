@@ -21,6 +21,7 @@
     @extend %padd--4;
     @extend %pos--relative;
     word-wrap: break-word;
+    // background-color: #ccc;
     // height: 84px;
 
     img {
@@ -33,6 +34,7 @@
 
     >div {
       background-color: #f5f3da;
+      border: 1px solid #c32349;
     }
 
     .ic_toggle {
@@ -48,11 +50,15 @@
 
   .ic_listview {
     @extend %padd--4;
-
+    @extend %bg--secondary;
+    border-bottom: 1px solid #fff;
+    
     .ic_list_iconbox {
       @extend %padd--4;
       @extend %pos--relative;
       height: 64px;
+      background-color: #f5f3da;
+      border: 1px solid #c32349;
       
       img {
         @include center-both;
@@ -64,7 +70,6 @@
     .ic_list_id {
       @extend %padd--4;
       @extend %font--bold;
-      background-color: #ccc;      
     }
 
     .ic_listview_details {
@@ -148,7 +153,15 @@
     margin-left: 4px;
     margin-right: 4px;
   }
- 
+
+  .ic_pg_container {
+    // background-color: green;
+  }
+
+  .jpages_pg-holder {
+    background-color: green;
+  }
+
   .ic_category_select {
     @extend %padd--4;
   }
