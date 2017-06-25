@@ -13,11 +13,15 @@
 
 .modal1_container {
   @include center-both;
-  @extend %padd--4;
-  
-  background: rgba(255, 255, 255, 1);
+  @extend %padd--4;  
+  // background: rgba(255, 255, 255, 1);
+  @extend %bg--secondary;
   // opacity: 1;  
   z-index: 9001;
+
+  label {
+    @extend %font_color--primary;
+  }
 }
 
 .modal1_close {
