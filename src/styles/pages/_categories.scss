@@ -73,9 +73,25 @@
     }
 
     .ic_listview_details {
+      position: relative;
       padding-left: 4px;
       background-color: #666;
     }
+
+    // mobile portrait (320x480) 
+    @include mq($from: mobile) {
+      
+    }
+    
+    // *mobile landscape (480x320)
+    @include mq($from: mobileLandscape) {
+      .ic_listview_details,
+      .ic_listview_svg {
+        height: 82px;
+      }
+    }
+    
+    
 
     button {
       @extend %margin_top--4;
@@ -87,10 +103,16 @@
     @extend %pos--relative;
     @extend %display--inline-block;
     vertical-align: middle;
-    background-color: #ccc;
+    // background-color: #ccc;
+
+    p {
+      display: inline-block;
+    }
 
     img {
       @extend %display--inline-block;
+      background-color: #f5f3da;
+      border: 1px solid #c32349;
       height: 24px;      
       vertical-align: text-bottom;
       cursor: pointer;
@@ -164,6 +186,10 @@
 
   .ic_category_select {
     @extend %padd--4;
+
+    p {
+      display: inline-block;
+    }
   }
 
   .ic_search {

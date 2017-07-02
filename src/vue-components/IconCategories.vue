@@ -29,7 +29,7 @@
         </div>
         <div class="col-sm-8 ic_search">
           <!-- begin search -->
-          <label for='hy'>search {{currentCategory}}:</label>
+          <label for='hy'>Search {{currentCategory}}:</label>
           <input type="text" id='hy'/>
           <!-- end search -->
         </div>
@@ -46,7 +46,7 @@
         </div>
         <div class="col-sm-8 ic_filter-controls">
           <span v-if="fcVisible">
-            type:
+            <p>Type:</p>
             <img v-on:click="filterItems('all')" src="img/icons/unsorted/noborders_transpa1.svg" alt="show all">
             <img v-on:click="filterItems('noborder')" src="img/icons/unsorted/noborders_transpa1.svg" alt="show noborders">
             <img v-on:click="filterItems('square')" src="img/icons/unsorted/square_transpa1.svg" alt="show square">
@@ -98,16 +98,16 @@
                 <img v-bind:src="'img/icons/' + currentCategory + '/' + i.src" v-bind:alt="i.id">
               </div>
             </div> 
-            <div class="col-sm-5 ic_listview_details">            
+            <div class="col-sm-5 ic_listview_details">           
               <p>{{ i.description }}</p>
-              <button class="ic_btn" v-on:click="addFavorite(i.id, i.src, i.type, i.svg)">add to favorites</button>
-              <button class="ic_btn" v-on:click="">more info</button>
+              <button class="ic_btn" v-on:click="addFavorite(i.id, i.src, i.type, i.svg)">Add to favorites</button>
+              <button class="ic_btn" v-on:click="">More info</button>
             </div>  
-            <div class="col-sm-5">
+            <div class="col-sm-5 ic_listview_svg">
               <!-- svg code -->            
               <textarea class="col-xs-12">{{ i.svg }}</textarea>
               <!-- end svg code -->
-              <button class="ic_btn">copy svg</button>
+              <button class="ic_btn">Copy svg</button>
             </div>              
           </div>
         </div>   

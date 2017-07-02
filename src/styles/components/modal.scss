@@ -15,12 +15,13 @@
   @include center-both;
   @extend %padd--4;  
   // background: rgba(255, 255, 255, 1);
-  @extend %bg--secondary;
+  background-color: #f5f3da;
+  border: 1px solid #c32349;
   // opacity: 1;  
   z-index: 9001;
 
   label {
-    @extend %font_color--primary;
+    @extend %icon_holder_text;
   }
 }
 

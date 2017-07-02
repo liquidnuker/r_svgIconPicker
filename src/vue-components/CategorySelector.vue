@@ -1,7 +1,8 @@
 <template>
   <div class="ic_category_select">
     <!-- category select -->
-    category: <select v-model="selected">
+    <p>Category:</p>
+    <select v-model="selected">
     <option v-for="i in options" v-bind:value="i" v-on:click="switchCategory(i)">
       {{ i }}
     </option>

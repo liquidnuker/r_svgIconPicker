@@ -37,7 +37,9 @@
       <!-- breadcrumb/search -->
       <div class="row bc_search_container">
         <div class="col-sm-12 ic_breadcrumb">
-          <a href="index.html#/">Home</a> &gt; Favorites
+          <a href="index.html#/">Home</a>
+          <p>&gt;</p>&nbsp;
+          <p>Favorites</p>
         </div>
       </div>
       <!-- end breadcrumb/search -->
@@ -49,7 +51,7 @@
         </div>
         <div class="col-sm-8">
           <span v-if="fcVisible" class="ic_filter-controls">
-            type:
+            <p>Type:</p>
             <img v-on:click="filterItems('all')" src="img/icons/unsorted/noborders_transpa1.svg" alt="show all">
             <img v-on:click="filterItems('noborder')" src="img/icons/unsorted/noborders_transpa1.svg" alt="show noborders">
             <img v-on:click="filterItems('square')" src="img/icons/unsorted/square_transpa1.svg" alt="show square">
@@ -114,7 +116,7 @@
                   <button class="ic_btn" v-on:click="addNoteToggle(index, i.id)">add note for {{ i.id }}</button>
                 </div>
               </div>  
-              <div class="col-sm-5">
+              <div class="col-sm-5 ic_listview_svg">
                 <!-- svg code -->
                 <textarea class="col-xs-12">{{ i.svg }}</textarea>
                 <!-- end svg code -->
