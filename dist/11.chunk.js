@@ -1,4 +1,4 @@
-webpackJsonp([5],{
+webpackJsonp([11],{
 
 /***/ 12:
 /***/ (function(module, exports) {
@@ -492,13 +492,24 @@ function parseJSON(response) {
 
 /***/ }),
 
-/***/ 23:
+/***/ 14:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return iconCategories; });
+var iconCategories = ["directional", "ui", "unsorted"];
+
+
+
+/***/ }),
+
+/***/ 21:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_HomeCommitFetcher_vue__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_96980110_hasScoped_false_node_modules_vue_loader_lib_selector_type_template_index_0_HomeCommitFetcher_vue__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_FeaturedIcon_vue__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_a78321a0_hasScoped_false_node_modules_vue_loader_lib_selector_type_template_index_0_FeaturedIcon_vue__ = __webpack_require__(36);
 var disposed = false
 var normalizeComponent = __webpack_require__(0)
 /* script */
@@ -512,15 +523,15 @@ var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
-  __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_HomeCommitFetcher_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_96980110_hasScoped_false_node_modules_vue_loader_lib_selector_type_template_index_0_HomeCommitFetcher_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_FeaturedIcon_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_a78321a0_hasScoped_false_node_modules_vue_loader_lib_selector_type_template_index_0_FeaturedIcon_vue__["a" /* default */],
   __vue_styles__,
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "vue-components\\HomeCommitFetcher.vue"
+Component.options.__file = "vue-components\\FeaturedIcon.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
-if (Component.options.functional) {console.error("[vue-loader] HomeCommitFetcher.vue: functional components are not supported with templates, they should use render functions.")}
+if (Component.options.functional) {console.error("[vue-loader] FeaturedIcon.vue: functional components are not supported with templates, they should use render functions.")}
 
 /* hot reload */
 if (false) {(function () {
@@ -529,9 +540,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-96980110", Component.options)
+    hotAPI.createRecord("data-v-a78321a0", Component.options)
   } else {
-    hotAPI.reload("data-v-96980110", Component.options)
+    hotAPI.reload("data-v-a78321a0", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -543,13 +554,16 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 39:
+/***/ 33:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_whatwg_fetch__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_whatwg_fetch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_whatwg_fetch__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__js_fetchutils_js__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__js_iconcategories_js__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__js_randomint_js__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__js_shuffle_js__ = __webpack_require__(35);
 //
 //
 //
@@ -562,26 +576,44 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+
+
+
 
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   data: function data() {
     return {
-      commits: ""
+      featuredIconCategory: "",
+      featuredIconId: "",
+      featuredIconSrc: ""
     };
   },
 
   mounted: function mounted() {
-    this.fetchCommits();
+    console.log("FeaturedIcon.vue mounted");
+    this.loadRandomIcon();
   },
   methods: {
-    fetchCommits: function fetchCommits() {
-      var apiUrl = "https://api.github.com/repos/liquidnuker/r_svgIconPker/commits?per_page=4&sha=master";
-      var self = this;
+    loadRandomIcon: function loadRandomIcon() {
+      var selectedItems = __WEBPACK_IMPORTED_MODULE_4__js_shuffle_js__["a" /* shuffleCategories */](__WEBPACK_IMPORTED_MODULE_2__js_iconcategories_js__["a" /* iconCategories */]);
+      var currentCategory = selectedItems[0];
+      var featuredItem = void 0;
+      var jsonUrl = "src/js/ajax/" + currentCategory + ".json";
 
-      fetch(apiUrl).then(__WEBPACK_IMPORTED_MODULE_1__js_fetchutils_js__["a" /* checkStatus */]).then(__WEBPACK_IMPORTED_MODULE_1__js_fetchutils_js__["b" /* parseJSON */]).then(function (data) {
-        self.commits = data;
+      var self = this;
+      fetch(jsonUrl).then(__WEBPACK_IMPORTED_MODULE_1__js_fetchutils_js__["a" /* checkStatus */]).then(__WEBPACK_IMPORTED_MODULE_1__js_fetchutils_js__["b" /* parseJSON */]).then(function (data) {
+        featuredItem = data[currentCategory];
+      }).then(function () {
+        // randomize index
+        var x = __WEBPACK_IMPORTED_MODULE_3__js_randomint_js__["a" /* getRandomInt */](0, featuredItem.length);
+
+        self.featuredIconCategory = currentCategory;
+        self.featuredIconId = featuredItem[x].id;
+        self.featuredIconSrc = featuredItem[x].src;
       }).catch(function (error) {
         console.log('request failed', error);
       });
@@ -591,20 +623,66 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 40:
+/***/ 34:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return getRandomInt; });
+var getRandomInt = function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
+};
+
+
+
+/***/ }),
+
+/***/ 35:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return shuffleCategories; });
+var shuffleCategories = function shuffleCategories(array) {
+  var currentIndex = array.length,
+      temporaryValue = void 0,
+      randomIndex = void 0;
+
+  while (0 !== currentIndex) {
+
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+};
+
+
+
+/***/ }),
+
+/***/ 36:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "home_commit_fetcher"
-  }, [_c('h2', [_vm._v("Latest News")]), _vm._v(" "), _vm._l((_vm.commits), function(i) {
-    return _c('ul', [_c('li', [_c('p', [_vm._v(_vm._s(i.commit.committer.date))]), _vm._v(" "), _c('p', {
-      staticClass: "commit_fetcher_sha"
-    }, [_vm._v(_vm._s(i.sha.slice(0, 7)))]), _vm._v(" "), _c('p', {
-      staticClass: "commit_fetcher_message"
-    }, [_vm._v(_vm._s(i.commit.message))])])])
-  })], 2)
+    staticClass: "row home_featured_icon"
+  }, [_c('h2', [_vm._v("Featured Icon")]), _vm._v(" "), _c('img', {
+    attrs: {
+      "src": "img/icons/ui/check1.svg"
+    }
+  }), _vm._v(" "), _c('p', [_vm._v(_vm._s(_vm.featuredIconId))]), _vm._v(" "), _c('p', {
+    staticClass: "featured_icon_category"
+  }, [_vm._v("Category: \n  "), _c('a', {
+    attrs: {
+      "href": 'index.html#/category/' + _vm.featuredIconCategory
+    }
+  }, [_vm._v("\n      " + _vm._s(_vm.featuredIconCategory) + "\n    ")])])])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -613,7 +691,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-     require("vue-hot-reload-api").rerender("data-v-96980110", esExports)
+     require("vue-hot-reload-api").rerender("data-v-a78321a0", esExports)
   }
 }
 

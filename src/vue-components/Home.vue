@@ -3,10 +3,7 @@
     <!-- spreader -->
     <div class="row container-fluid spreader">
       <div class="ic_container">
-        <!-- vcHeader mount-->
-        <div id="vc-header-mount">          
-        </div>
-        <!-- end vcHeader mount -->
+        <vcHeader />
       </div>
     </div>
     <!-- /spreader -->
@@ -14,16 +11,10 @@
       <!-- featuredicon/carouselintro -->
       <div class="row home_stage">
         <section class="col-sm-4 home_fi_container">
-          <!-- featured-icon mount -->
-          <div id="vc-featured-icon">              
-          </div>
-          <!-- end featured-icon mount -->
+          <vcFeaturedIcon />
         </section>
         <div class="col-sm-8 home_carousel_container">
-          <!-- begin carousel mount -->
-          <div id="vc_home_carousel">              
-          </div>
-          <!-- end carousel mount -->
+          <vcHomeCarousel />
         </div>
       </div>
       <!-- end featuredicon/carouselintro -->
@@ -36,10 +27,7 @@
           <!-- end commit fetcher mount-->
         </section>
         <section class="col-sm-8 home_ic_selector">
-          <!-- begin cat selector mount -->
-          <div id="vc_home_ic_selector">              
-          </div>
-          <!-- end cat selector mount -->
+          <vcHomeCatSelector />
         </section>
       </div>
       <!-- end news/iconcategoryselector -->
@@ -56,53 +44,28 @@
   </div>
 </template>
 <script>
-// import Vue from "vue";
+const vcHeader = () => import('./Header.vue');
+const vcHomeCatSelector = () => import('./HomeCategorySelector.vue');
+const vcFeaturedIcon = () => import('./FeaturedIcon.vue');
+const vcHomeCarousel = () => import('./HomeCarousel.vue');
+
 import {inject} from "../js/componentinjector.js";
 export default {
   data () {
     return {    
     }
   },
+  components: {
+    vcHeader: vcHeader,
+    vcHomeCatSelector: vcHomeCatSelector,
+    vcFeaturedIcon: vcFeaturedIcon,
+    vcHomeCarousel: vcHomeCarousel
+  },
   mounted: function () {
-    this.mountHeader(); // [1]
+    
   },
   methods: {
-  mountHeader: function() {
-      const vcHeader = resolve => {
-        require.ensure(['./Header.vue'], () => {
-          resolve(require('./Header.vue'))
-        })
-      };
-      inject('#vc-header-mount', vcHeader);
-      this.mountCategorySelector(); // [2]
-    },
-    mountCategorySelector: function() {
-      const vcHomeCatSelector = resolve => {
-        require.ensure(['./HomeCategorySelector.vue'], () => {
-          resolve(require('./HomeCategorySelector.vue'))
-        })
-      };
-      inject('#vc_home_ic_selector', vcHomeCatSelector);
-      this.mountFeaturedIcon(); // [3]
-    },
-    mountFeaturedIcon: function() {
-      const vcFeaturedIcon = resolve => {
-        require.ensure(['./FeaturedIcon.vue'], () => {
-          resolve(require('./FeaturedIcon.vue'))
-        })
-      };
-      inject('#vc-featured-icon', vcFeaturedIcon);
-      this.mountCarousel(); // [4]
-    },
-    mountCarousel: function() {
-      const vcHomeCarousel = resolve => {
-        require.ensure(['./HomeCarousel.vue'], () => {
-          resolve(require('./HomeCarousel.vue'))
-        })
-      };
-      inject('#vc_home_carousel', vcHomeCarousel);
-      this.mountCommitFetcher(); // [5]
-    },
+    // todo: inject this later
     mountCommitFetcher: function() {
       const vcCommitFetcher = resolve => {
         require.ensure(['./HomeCommitFetcher.vue'], () => {
