@@ -11,7 +11,7 @@
 
       <!-- breadcrumb/search -->
       <div class="row bc_search_container">
-        <BcSearch :pr-current-category="currentCategory" />
+        <vcBcSearch :pr-current-category="currentCategory" />
       </div>
       <!-- end breadcrumb/search -->
 
@@ -51,18 +51,43 @@
       <!-- ic_pg-holder -->
       <div class="row ic_pg_container">
         <div class="col-sm-12" id="jpages_pg-holder">
-        <!-- grid view -->
-        <div v-if="gridView">
-        <vcGridView 
-        :pr-current-items="currentItems"
-        :pr-current-category="currentCategory" />   
-        </div>       
+          <!-- grid view -->
+          <div v-if="gridView" v-for="(i, index) in currentItems" :key="i.id">
+            <div class="col-xs-3 col-sm-2 ic_iconbox" id="ic_iconbox">
+              <div>          
+              <p class="ic_toggle">{{ i.id }}</p>
+              <img v-bind:src="'img/icons/' + currentCategory + '/' + i.src" v-bind:alt="i.id">
+              <div class="ic_tooltip">
+                <button class="ic_btn" v-on:click="addFavorite(i.id, i.src, i.type, i.svg, i.description)">add</button>
+                <button class="ic_btn" v-on:click="">svg</button>  
+              </div>        
+            </div>
+          </div>
+        </div>
         <!-- end grid view -->
         <!-- list view -->
         <div v-else>
-          <vcListView 
-          :pr-current-items="currentItems"
-          :pr-current-category="currentCategory" />
+          <div class="col-sm-12 row ic_listview">
+            <p class="ic_list_id">
+              <a href="#">{{ i.id }}</a>
+            </p>
+            <div class="col-sm-2">
+              <div class="ic_list_iconbox">
+                <img v-bind:src="'img/icons/' + currentCategory + '/' + i.src" v-bind:alt="i.id">
+              </div>
+            </div> 
+            <div class="col-sm-5 ic_listview_details">           
+              <p>{{ i.description }}</p>
+              <button class="ic_btn" v-on:click="addFavorite(i.id, i.src, i.type, i.svg)">Add to favorites</button>
+              <button class="ic_btn" v-on:click="">More info</button>
+            </div>  
+            <div class="col-sm-5 ic_listview_svg">
+              <!-- svg code -->            
+              <textarea class="col-xs-12">{{ i.svg }}</textarea>
+              <!-- end svg code -->
+              <button class="ic_btn">Copy svg</button>
+            </div>              
+          </div>
         </div>   
         <!-- end list view -->
       </div>
@@ -92,9 +117,7 @@
 </template>
 <script>
 const vcHeader = () => import('./Header.vue');
-const BcSearch = () => import('./BcSearch.vue');
-const vcGridView = () => import('./IcGridView.vue');
-const vcListView = () => import('./IcListView.vue');
+const vcBcSearch = () => import('./BcSearch.vue');
 
 import 'whatwg-fetch';
 import {inject} from "../js/componentinjector.js";
@@ -102,6 +125,7 @@ import {checkStatus, parseJSON} from "../js/fetchutils.js";
 import {store} from "../js/store.js";
 import {iconCategories} from "../js/iconcategories.js";
 import {itemExists} from "../js/itemexists.js";
+import {favoriteExists} from "../js/favoriteexists.js";
 import {removeParamColons} from "../js/removeparamcolons.js";
 import {pager} from "../js/paginator.js";
 import horsey from "../js/vendor/horsey.min.js";
@@ -126,9 +150,7 @@ export default {
     },
     components: {
       vcHeader: vcHeader,
-      BcSearch: BcSearch,
-      vcGridView: vcGridView,
-      vcListView: vcListView
+      vcBcSearch: vcBcSearch
     },
     mounted: function () {
       this.checkCategory();
@@ -236,8 +258,26 @@ export default {
         pager.destroy();
         this.gridView = !this.gridView;
         pager.reActivate(4);
+      },
+      addFavorite: function (id, src, type, svg, desc) {
+
+        // check before pushing
+        if (favoriteExists(id) !== undefined) {
+          console.log("already in favorites");
+        } else {
+          var x = Date().toString();
+          store.favorites.push({
+            category: this.currentCategory,
+            id: id,
+            type: type,
+            src: src,
+            svg: svg,
+            description: desc,
+            date: x,
+            notes: ""
+          });
+        }
       }
-      
     }
 }
 </script>
