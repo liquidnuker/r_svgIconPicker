@@ -11,7 +11,7 @@
 
       <!-- breadcrumb/search -->
       <div class="row bc_search_container">
-        <vcBcSearch :pr-current-category="currentCategory" />
+        <BcSearch :pr-current-category="currentCategory" />
       </div>
       <!-- end breadcrumb/search -->
 
@@ -39,13 +39,7 @@
       <!-- end category/type -->
 
       <!--top ic_pg-controls -->
-      <div class="row pg_container">
-        <div class="col-sm-12 ic_pg-controls">
-          <div class="jpages_pg">
-          top paginator
-          </div>          
-        </div>  
-      </div>
+      <PagerContainer />
       <!--end top ic_pg-controls -->
 
       <!-- ic_pg-holder -->
@@ -95,13 +89,7 @@
     <!-- end ic_pg-holder -->
 
     <!--bottom ic_pg-controls -->
-    <div class="row pg_container">
-      <div class="col-sm-12 ic_pg-controls">
-        <div class="jpages_pg">
-          top paginator
-        </div>          
-      </div>  
-    </div> 
+    <PagerContainer />
     <!--end bottom ic_pg-controls -->
   </div>
   <!-- spreader -->
@@ -117,7 +105,8 @@
 </template>
 <script>
 const vcHeader = () => import('./Header.vue');
-const vcBcSearch = () => import('./BcSearch.vue');
+const BcSearch = () => import('./BcSearch.vue');
+const PagerContainer = () => import('./PagerContainer.vue');
 
 import 'whatwg-fetch';
 import {inject} from "../js/componentinjector.js";
@@ -137,20 +126,18 @@ export default {
         // for displaying items
         currentItems: "",
 
-        hoveritem: "",
-        snippet: "",
-
         // filter buttons
         fcVisible: false,
-
+        
         gridView: true,
-
+        
         favorites: store.favorites,
       }
     },
     components: {
       vcHeader: vcHeader,
-      vcBcSearch: vcBcSearch
+      BcSearch: BcSearch,
+      PagerContainer: PagerContainer
     },
     mounted: function () {
       this.checkCategory();

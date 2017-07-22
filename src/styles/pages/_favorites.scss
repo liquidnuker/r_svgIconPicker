@@ -24,4 +24,13 @@
 .fav_ic_holder {
   background-color: #f5f3da;
   border: 1px solid #c32349;
+
+  img {
+      @include center-block;
+      @extend %pos--relative;
+      @extend %margin_top--4;
+      @extend %margin_bottom--4;
+      height: 40px;
+    }
 }
+
