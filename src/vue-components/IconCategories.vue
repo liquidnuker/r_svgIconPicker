@@ -3,36 +3,15 @@
     <!-- spreader -->
     <div class="row container-fluid spreader">
       <div class="ic_container">
-        <!-- vcHeader mount-->
-        <div id="vc-header-mount">          
-        </div>
-        <!-- end vcHeader mount -->
+        <vcHeader />
       </div>
     </div>
     <!-- /spreader -->
     <div class="row ic_container">
 
-      <div class="row ic_tophover">
-        <div class="col-sm-6">
-          <p>{{ hoveritem }}</p>
-        </div>
-        <div class="col-sm-6">
-          <p>{{ snippet }}</p>
-        </div>
-      </div>
-
       <!-- breadcrumb/search -->
       <div class="row bc_search_container">
-        <div class="col-sm-4 ic_breadcrumb">
-          <a href="index.html#/">Home</a> <p>&gt;</p>&nbsp;
-          <p>{{ this.$route.params.category }}</p>
-        </div>
-        <div class="col-sm-8 ic_search">
-          <!-- begin search -->
-          <label for='hy'>Search {{currentCategory}}:</label>
-          <input type="text" id='hy'/>
-          <!-- end search -->
-        </div>
+        <BcSearch :pr-current-category="currentCategory" />
       </div>
       <!-- end breadcrumb/search -->
 
@@ -71,45 +50,19 @@
 
       <!-- ic_pg-holder -->
       <div class="row ic_pg_container">
-        <div class="col-sm-12" id="jpages_pg-holder" v-on:mouseout="showIconInfo()">
-          <!-- grid view -->
-          <div v-if="gridView" v-for="(i, index) in currentItems" :key="i.id">
-            <div class="col-xs-3 col-sm-2 ic_iconbox" id="ic_iconbox">
-              <div v-on:mouseover="showIconInfo(i.id)" 
-              v-on:click="selectitem(i.svg)">          
-              <p class="ic_toggle">{{ i.id }}</p>
-              <img v-bind:src="'img/icons/' + currentCategory + '/' + i.src" v-bind:alt="i.id">
-              <div class="ic_tooltip">
-                <button class="ic_btn" v-on:click="addFavorite(i.id, i.src, i.type, i.svg, i.description)">add</button>
-                <button class="ic_btn" v-on:click="">svg</button>  
-              </div>        
-            </div>
-          </div>
-        </div>
+        <div class="col-sm-12" id="jpages_pg-holder">
+        <!-- grid view -->
+        <div v-if="gridView">
+        <vcGridView 
+        :pr-current-items="currentItems"
+        :pr-current-category="currentCategory" />   
+        </div>       
         <!-- end grid view -->
         <!-- list view -->
         <div v-else>
-          <div class="col-sm-12 row ic_listview">
-            <p class="ic_list_id">
-              <a href="#">{{ i.id }}</a>
-            </p>
-            <div class="col-sm-2">
-              <div class="ic_list_iconbox">
-                <img v-bind:src="'img/icons/' + currentCategory + '/' + i.src" v-bind:alt="i.id">
-              </div>
-            </div> 
-            <div class="col-sm-5 ic_listview_details">           
-              <p>{{ i.description }}</p>
-              <button class="ic_btn" v-on:click="addFavorite(i.id, i.src, i.type, i.svg)">Add to favorites</button>
-              <button class="ic_btn" v-on:click="">More info</button>
-            </div>  
-            <div class="col-sm-5 ic_listview_svg">
-              <!-- svg code -->            
-              <textarea class="col-xs-12">{{ i.svg }}</textarea>
-              <!-- end svg code -->
-              <button class="ic_btn">Copy svg</button>
-            </div>              
-          </div>
+          <vcListView 
+          :pr-current-items="currentItems"
+          :pr-current-category="currentCategory" />
         </div>   
         <!-- end list view -->
       </div>
@@ -138,14 +91,17 @@
 </div>
 </template>
 <script>
-// import Vue from "vue";
+const vcHeader = () => import('./Header.vue');
+const BcSearch = () => import('./BcSearch.vue');
+const vcGridView = () => import('./IcGridView.vue');
+const vcListView = () => import('./IcListView.vue');
+
 import 'whatwg-fetch';
 import {inject} from "../js/componentinjector.js";
 import {checkStatus, parseJSON} from "../js/fetchutils.js";
 import {store} from "../js/store.js";
 import {iconCategories} from "../js/iconcategories.js";
 import {itemExists} from "../js/itemexists.js";
-import {favoriteExists} from "../js/favoriteexists.js";
 import {removeParamColons} from "../js/removeparamcolons.js";
 import {pager} from "../js/paginator.js";
 import horsey from "../js/vendor/horsey.min.js";
@@ -168,9 +124,15 @@ export default {
         favorites: store.favorites,
       }
     },
+    components: {
+      vcHeader: vcHeader,
+      BcSearch: BcSearch,
+      vcGridView: vcGridView,
+      vcListView: vcListView
+    },
     mounted: function () {
       this.checkCategory();
-      this.mountHeader();
+      // this.mountHeader();
     },
     watch: {
       $route: function () {
@@ -179,14 +141,6 @@ export default {
       }
     },
     methods: {
-      mountHeader: function () {
-        const vcHeader = resolve => {
-          require.ensure(['./Header.vue'], () => {
-            resolve(require('./Header.vue'))
-          })
-        };
-        inject('#vc-header-mount', vcHeader);
-      },
       mountCatSelector: function () {
         const vcCatSelector = resolve => {
           require.ensure(['./CategorySelector.vue'], () => {
@@ -198,12 +152,6 @@ export default {
       refreshItems: function () {
         this.favorites = store.favorites;
         this.currentItems = store.currentItems;
-      },
-      showIconInfo: function (item) {
-        this.hoveritem = item;
-      },
-      selectitem: function (item) {
-        this.snippet = item;
       },
       checkCategory: function () {
         // check if category exists before loading json
@@ -288,26 +236,8 @@ export default {
         pager.destroy();
         this.gridView = !this.gridView;
         pager.reActivate(4);
-      },
-      addFavorite: function (id, src, type, svg, desc) {
-
-        // check before pushing
-        if (favoriteExists(id) !== undefined) {
-          console.log("already in favorites");
-        } else {
-          var x = Date().toString();
-          store.favorites.push({
-            category: this.currentCategory,
-            id: id,
-            type: type,
-            src: src,
-            svg: svg,
-            description: desc,
-            date: x,
-            notes: ""
-          });
-        }
       }
+      
     }
 }
 </script>

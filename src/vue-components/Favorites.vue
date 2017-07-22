@@ -3,10 +3,7 @@
     <!-- spreader -->
     <div class="row container-fluid spreader">
       <div class="ic_container">
-        <!-- vcHeader mount-->
-        <div id="vc-header-mount">          
-        </div>
-        <!-- end vcHeader mount -->
+        <vcHeader />
       </div>
     </div>
     <!-- /spreader -->
@@ -151,7 +148,8 @@
   </div>
 </template>
 <script>
-// import Vue from "vue";
+const vcHeader = () => import('./Header.vue');
+
 import {pager} from "../js/paginator.js";
 import {store} from "../js/store.js";
 import {indexFinder} from "../js/indexfinder.js";
@@ -180,6 +178,9 @@ export default {
 
       gridView:  false
     };
+  },
+  components: {
+    vcHeader: vcHeader
   },
   watch: {
     allItems: function () {
