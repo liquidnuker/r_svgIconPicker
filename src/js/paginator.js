@@ -22,6 +22,7 @@ const pager = {
     }, timeout);
   },
   destroy: function () {
+    // todo: if (!$(".jpages_pg").jPages() === null) {
     if ($(".jpages_pg").jPages()) {
       $(".jpages_pg").jPages("destroy");
     } else {
